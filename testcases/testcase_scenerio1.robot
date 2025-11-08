@@ -8,3 +8,4 @@ Verify registration form with all input field
     Open Browser    https://panaryco.wixsite.com/myhotel  chrome
     Maximize Browser Window
     sleep   5
+    Log   test
