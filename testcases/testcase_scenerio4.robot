@@ -7,5 +7,14 @@ Verify registration form with all input field
     [Tags]    All Input
     Open Browser    http://localhost:3000/  chrome
     Maximize Browser Window
-    Input text    //*[@id='input_48']    studentFirstName
-    sleep   1000s
+    sleep    1s
+    Input text    //*[@id='accountId']    6870194521
+    Input text    //*[@id='password']    1234
+    Click Element    xpath=//button[@cid="lc"]
+    sleep    1s
+    Input text    //*[@cid='d1']    10000
+    Click Element    xpath=//button[@cid="dc"]
+    sleep    1s
+    Input text    //*[@cid='w1']    999999
+    Click Element    xpath=//button[@cid="wc"]
+    sleep    5s
