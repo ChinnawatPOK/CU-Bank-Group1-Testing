@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.7 on win32)" generated="2025-11-09T23:36:02.075935" rpa="false" schemaversion="5">
+<suite id="s1" name="Features Scenerio8" source="D:\OneDrive\Documents\06_Education\202508_CU_INTANIA_CU109\04_Term01\2110724 - SW TEST QA\Assignment\Team_Project2\Robot\CU-Bank-Group1-Testing\testcases\features_scenerio8.robot">
+<kw name="Login To Bank" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-09T23:36:02.351912" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-09T23:36:02.351668" elapsed="2.157010"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-09T23:36:04.509112" elapsed="0.084681"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:[cid="l1"]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-09T23:36:04.594209" elapsed="0.016394"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-09T23:36:04.611179" level="INFO">Typing text '6870333421' into text field 'css:[cid="l1"]'.</msg>
+<arg>css:[cid="l1"]</arg>
+<arg>${VALID_ACC}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-09T23:36:04.610841" elapsed="0.155499"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-11-09T23:36:04.768832" level="INFO">Typing password into text field 'css:[cid="l2"]'.</msg>
+<msg time="2025-11-09T23:36:04.807079" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>css:[cid="l2"]</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-09T23:36:04.767360" elapsed="0.094953"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-09T23:36:04.863040" level="INFO">Clicking button 'css:[cid="lc"]'.</msg>
+<arg>css:[cid="lc"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-09T23:36:04.862704" elapsed="0.085796"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Account ID:</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-09T23:36:04.948942" elapsed="0.288655"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-09T23:36:15.239246" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-09T23:36:05.238007" elapsed="10.001520"/>
+</kw>
+<status status="PASS" start="2025-11-09T23:36:02.351095" elapsed="12.888752"/>
+</kw>
+<test id="s1-t1" name="Login to account" line="15">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-09T23:36:15.241735" level="INFO">Typing text '6870194521' into text field '//*[@id='accountId']'.</msg>
+<arg>//*[@id='accountId']</arg>
+<arg>6870194521</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-09T23:36:15.241252" elapsed="0.098287"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-09T23:36:15.341493" level="INFO">Typing text '1234' into text field '//*[@id='password']'.</msg>
+<msg time="2025-11-09T23:36:15.454227" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-09T23:36:15.454465" level="FAIL">Element with locator '//*[@id='password']' not found.</msg>
+<arg>//*[@id='password']</arg>
+<arg>1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2025-11-09T23:36:15.340534" elapsed="0.116702">Element with locator '//*[@id='password']' not found.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[@cid="lc"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-11-09T23:36:15.457606" elapsed="0.000066"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-11-09T23:36:15.457935" elapsed="0.000046"/>
+</kw>
+<status status="FAIL" start="2025-11-09T23:36:15.240118" elapsed="0.218084">Element with locator '//*[@id='password']' not found.</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-09T23:36:15.459191" elapsed="2.346821"/>
+</kw>
+<status status="FAIL" start="2025-11-09T23:36:02.078342" elapsed="15.727861"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Features Scenerio8" id="s1" pass="0" fail="1" skip="0">Features Scenerio8</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
