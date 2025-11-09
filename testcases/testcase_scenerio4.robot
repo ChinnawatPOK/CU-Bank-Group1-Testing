@@ -5,7 +5,6 @@ Test Teardown  Close All Browsers
 *** Test Cases ***
 Verify registration form with all input field
     [Tags]    All Input
-    Open Browser    https://panaryco.wixsite.com/myhotel  chrome
+    Open Browser    http://localhost:3000/  chrome
     Maximize Browser Window
-    sleep   5
-    Log   test
+    sleep   1000s
