@@ -9,7 +9,6 @@ Test Teardown  Close All Browsers
 
 *** Test Cases ***
 TC01 Deposit Success
-    [Tags]    All Input
     [Setup]   Run Keywords    Delete Transactions On Account
     ...       AND   Update Balance To Zero
     Open Browser    http://localhost:3000  chrome
