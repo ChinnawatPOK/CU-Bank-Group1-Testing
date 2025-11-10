@@ -1,10 +1,9 @@
 *** Settings ***
-Library    Browser
-Library    String
-Library    Collections
+Resource    ../resources/imports.robot
+Resource    ../keywords/common/cubankCommonKeywords.robot
+
 Suite Setup     Open CU Bank And Login
-Suite Teardown  Close Browser
-Test Teardown   Take Screenshot    fullPage=True
+Test Teardown  Close All Browsers
 
 *** Variables ***
 ${BASE_URL}       http://localhost:3000
@@ -31,14 +30,12 @@ ${SEL_BALANCE_TEXT}    xpath=//div[contains(text(), "Balance:")]/following::div[
 
 *** Keywords ***
 Open CU Bank And Login
-    New Browser    chromium    headless=False
-    New Context
-    New Page       ${BASE_URL}
-    Wait For Elements State    ${SEL_LOGIN_HEADING}    visible    10s
-    Fill Text      ${SEL_LOGIN_ACC}    ${ACC_NO}
-    Fill Text      ${SEL_LOGIN_PW}     ${PASSWORD}
-    Click          ${SEL_LOGIN_BTN}
-    Wait Until Account Page Ready
+    Open Browser    http://localhost:3000  chrome
+#    New Context
+#    New Page       ${BASE_URL}
+#    Wait For Elements State    ${SEL_LOGIN_HEADING}    visible    10s
+    Login with account number and password  accountNumber=${ACC_NO}  password=${PASSWORD}
+#    Wait Until Account Page Ready
 
 Wait Until Account Page Ready
     Wait For Elements State    ${BILL_WATER}    visible    15s
@@ -91,10 +88,11 @@ Select Bill Type
 
 Set Bill Amount
     [Arguments]    ${amount}
-    Fill Text    ${BILL_AMOUNT_INPUT}    ${amount}
+    Wait Until Element Is Visible  xpath=//input[@cid='b4']
+    Input Text    xpath=//input[@cid='b4']  ${amount}
 
 Click Bill Confirm
-    Click        ${BILL_CONFIRM_BTN}
+    Click Button        ${BILL_CONFIRM_BTN}
 
 Pay Bill And Expect Success
     [Arguments]    ${amount}    ${type}=water
@@ -119,7 +117,7 @@ Pay Bill And Expect Fail
 TC6-01 No bill type selected
     Set Bill Amount    300
     Click Bill Confirm
-    Bill Payment Should Not Change Balance
+    Verify Balance On Title  balance=10000
     Sleep    2s
 
 TC6-02 Blank amount
