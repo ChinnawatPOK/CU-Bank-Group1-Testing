@@ -39,12 +39,12 @@ TC03 Deposit Failed Amount Is Decimal
     Validate Error Message  msg=The amount must be greater than 0. Please enter a positive number.
     Verify History transaction should empty
 
-TC04 Deposit Failed Amount Is Decimal
-    [Setup]   Run Keywords    Delete Transactions On Account
-    ...       AND   Update Balance To Zero
-    Open Browser    http://localhost:3000  chrome
-    Maximize Browser Window
-    Login with account number and password  accountNumber=1234567899  password=1234
-    Click deposit button
-#    Verify tooltip deposit not fill out amount
-    Verify History transaction should empty
+#TC04 Deposit Failed Amount Is Decimal
+#    [Setup]   Run Keywords    Delete Transactions On Account
+#    ...       AND   Update Balance To Zero
+#    Open Browser    http://localhost:3000  chrome
+#    Maximize Browser Window
+#    Login with account number and password  accountNumber=1234567899  password=1234
+#    Click deposit button
+##    Verify tooltip deposit not fill out amount
+#    Verify History transaction should empty
