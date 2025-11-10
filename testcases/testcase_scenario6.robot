@@ -1,151 +1,159 @@
 *** Settings ***
-Library    Browser
-Library    String
-Library    Collections
-Suite Setup     Open CU Bank And Login
-Suite Teardown  Close Browser
-Test Teardown   Take Screenshot    fullPage=True
+Library           SeleniumLibrary
+Suite Setup       Login To Bank
+Suite Teardown    Close Browser
+
+Resource          ../keywords/common/cubankCommonKeywords.robot
+Resource          ../keywords/common/mongoDatabaseKeywords.robot
+
+Variables         ../resources/testdata/scenario_bill.yml
+
 
 *** Variables ***
 ${BASE_URL}       http://localhost:3000
-${ACC_NO}         6870054321
-${PASSWORD}       1999
+${BROWSER}        chrome
 
-# --- Selectors ---
-${SEL_LOGIN_ACC}         css=input[placeholder*="account number"]
-${SEL_LOGIN_PW}          css=input[placeholder*="password"]
-${SEL_LOGIN_BTN}         role=button[name="Login"]
-${SEL_LOGIN_HEADING}     role=heading[name="Login"]
-${SEL_BODY_TEXT}         css=body
-${ALL_AMOUNT_INPUTS}     css=input[placeholder*="Please fill amount"]
-${DEPOSIT_AMOUNT}        ${ALL_AMOUNT_INPUTS} >> nth=0
-${DEPOSIT_CONFIRM}       xpath=(//button[normalize-space()='Confirm'])[1]
-${BILL_FORM}             xpath=//form[.//input[@name='billTarget']]
-${BILL_WATER}            ${BILL_FORM} >> css=input[name="billTarget"][value="water"]
-${BILL_ELECTRIC}         ${BILL_FORM} >> css=input[name="billTarget"][value="electric"]
-${BILL_PHONE}            ${BILL_FORM} >> css=input[name="billTarget"][value="phone"]
-${BILL_AMOUNT_INPUT}     ${BILL_FORM} >> css=input[placeholder*="Please fill amount"]
-${BILL_CONFIRM_BTN}      ${BILL_FORM} >> css=button[cid="bc"]
-${MSG_INSUFF}            Your balance is not enough to complete the bill payment.
-${SEL_BALANCE_TEXT}    xpath=//div[contains(text(), "Balance:")]/following::div[1]
+${VALID_ACC}      1234567892
+${PASSWORD}       1234
+
+# Bill Types (radio values)
+${BILL_WATER}     water
+${BILL_ELECTRIC}  electric
+${BILL_PHONE}     phone
+
+# Test Amounts
+${AMOUNT_VALID1}      150
+${AMOUNT_VALID2}      2000
+${AMOUNT_VALID3}      300
+${AMOUNT_EQUAL}       7750
+${AMOUNT_ZERO}        0
+${AMOUNT_NEGATIVE}   -500
+${AMOUNT_OVER}        50000
+
 
 *** Keywords ***
-Open CU Bank And Login
-    New Browser    chromium    headless=False
-    New Context
-    New Page       ${BASE_URL}
-    Wait For Elements State    ${SEL_LOGIN_HEADING}    visible    10s
-    Fill Text      ${SEL_LOGIN_ACC}    ${ACC_NO}
-    Fill Text      ${SEL_LOGIN_PW}     ${PASSWORD}
-    Click          ${SEL_LOGIN_BTN}
-    Wait Until Account Page Ready
+Login To Bank
+    [Documentation]    Logs into the CU Bank application.
+    Open Browser    ${BASE_URL}    ${BROWSER}
+    Maximize Browser Window
+    Wait Until Page Contains Element    css:[cid="l1"]    timeout=10s
+    Input Text       css:[cid="l1"]    ${VALID_ACC}
+    Input Password   css:[cid="l2"]    ${PASSWORD}
+    Click Button     css:[cid="lc"]
+    Wait Until Page Contains    Account ID:    timeout=10s
 
-Wait Until Account Page Ready
-    Wait For Elements State    ${BILL_WATER}    visible    15s
+
+Go To Bill Payment
+    [Documentation]    Navigate to Bill Payment page and verify the form is visible.
+    Go To    ${BASE_URL}/account
+    Wait Until Page Contains Element    xpath=//h2[normalize-space(.)="Bill Payment"]    timeout=10s
+    Scroll Element Into View            xpath=//h2[normalize-space(.)="Bill Payment"]
+    Wait Until Page Contains Element    css:input[name="billTarget"]    timeout=5s
+    Wait Until Page Contains Element    id:amount    timeout=5s
+
+
+Submit Bill Payment
+    [Documentation]    Select bill type (if provided), input amount, and click Confirm.
+    [Arguments]    ${bill_type}=    ${amount}=
+    Run Keyword If    '${bill_type}' != ''    Click Element    css:input[name="billTarget"][value="${bill_type}"]
+    Wait Until Element Is Visible    id:amount    timeout=5s
+    Clear Element Text               id:amount
+        Input Text     xpath=//h2[text()="Transfer"]/following::input[@cid="b4"][1]    ${amount}
+    Wait Until Element Is Visible    css:button[cid="bc"]    timeout=5s
+    Click Button                     css:button[cid="bc"]
+    Sleep    1s
+
+
+Validate Error
+    [Documentation]    Validate error message shown for failed bill payment.
+    [Arguments]    ${msg}
+    Wait Until Page Contains    ${msg}    timeout=5s
+    Capture Page Screenshot
+
+
+Validate Success
+    [Documentation]    Validate successful payment confirmation appears.
+    Wait Until Page Contains    Confirm    timeout=10s
+    Capture Page Screenshot
+
 
 Get Balance
-    ${bal_text}=    Get Text    ${SEL_BALANCE_TEXT}
-    Log To Console    Raw balance text: ${bal_text}
-    ${bal_text}=     Replace String    ${bal_text}    ,    ${EMPTY}
-    Should Not Be Empty    ${bal_text}
-    ${bal}=          Convert To Integer    ${bal_text}
-    RETURN    ${bal}
+    [Documentation]    Read the numeric account balance from the UI.
+    ${bal_text}=    Get Text    xpath=(//h2[text()="Balance:"]/following-sibling::h1)[1]
+    ${bal}=         Convert To Integer    ${bal_text}
+    [Return]        ${bal}
 
-Ensure Balance At Least
-    [Arguments]    ${min_required}
-    ${bal}=    Get Balance
-    IF    ${bal} < ${min_required}
-        ${need}=    Evaluate    int(${min_required}) - int(${bal})
-        Fill Text   ${DEPOSIT_AMOUNT}    ${need}
-        Click       ${DEPOSIT_CONFIRM}
-        Wait Until Keyword Succeeds    5x    1s    Balance Should Increase By    ${bal}    ${need}
-    END
-
-Balance Should Increase By
-    [Arguments]    ${before}    ${amount}
-    ${expected}=    Evaluate    int(${before}) + int(${amount})
-    ${after}=       Get Balance
-    Should Be Equal As Integers    ${after}    ${expected}
-
-Balance Should Decrease By
-    [Arguments]    ${before}    ${amount}
-    ${expected}=    Evaluate    int(${before}) - int(${amount})
-    ${after}=       Get Balance
-    Should Be Equal As Integers    ${after}    ${expected}
-
-Bill Payment Should Not Change Balance
-    ${b1}=    Get Balance
-    Sleep    300ms
-    ${b2}=    Get Balance
-    Should Be Equal As Integers    ${b2}    ${b1}
-
-Select Bill Type
-    [Arguments]    ${type}
-    IF    '${type}'=='water'
-        Click    ${BILL_WATER}
-    ELSE IF    '${type}'=='electric'
-        Click    ${BILL_ELECTRIC}
-    ELSE IF    '${type}'=='phone'
-        Click    ${BILL_PHONE}
-    END
-
-Set Bill Amount
-    [Arguments]    ${amount}
-    Fill Text    ${BILL_AMOUNT_INPUT}    ${amount}
-
-Click Bill Confirm
-    Click        ${BILL_CONFIRM_BTN}
-
-Pay Bill And Expect Success
-    [Arguments]    ${amount}    ${type}=water
-    ${before}=    Get Balance
-    Select Bill Type    ${type}
-    Set Bill Amount     ${amount}
-    Click Bill Confirm
-    Wait Until Keyword Succeeds    5x    1s    Balance Should Decrease By    ${before}    ${amount}
-
-Pay Bill And Expect Fail
-    [Arguments]    ${amount}    ${type}=water
-    Select Bill Type    ${type}
-    Set Bill Amount     ${amount}
-    Click Bill Confirm
-    Wait For Elements State    text=${MSG_INSUFF}    visible    5s
-    Bill Payment Should Not Change Balance
 
 *** Test Cases ***
+# =========================================================
+# Scenario 6: Login ผ่านแต่จ่ายบิลไม่ผ่าน (Invalid cases)
+# =========================================================
 
-# ---------------- SCENARIO 6: Invalid Inputs ----------------
+TC01 ไม่เลือกบิล
+    [Setup]   Update Balance By Amount    10000
+    Go To Bill Payment
+    Submit Bill Payment    ${EMPTY}    300
+    Validate Error    Please select one of these options.
 
-TC6-01 No bill type selected
-    Set Bill Amount    300
-    Click Bill Confirm
-    Bill Payment Should Not Change Balance
-    Sleep    2s
+TC02 จำนวนเงินว่างเปล่า
+    Go To Bill Payment
+    Submit Bill Payment    ${BILL_WATER}    ${EMPTY}
+    Validate Error    Please enter the amount to pay.
 
-TC6-02 Blank amount
-    Select Bill Type    water
-    Fill Text    ${BILL_AMOUNT_INPUT}    ${EMPTY}
-    Click Bill Confirm
-    Bill Payment Should Not Change Balance
-    Sleep    2s
+TC03 จำนวนเงินเป็นศูนย์
+    Go To Bill Payment
+    Submit Bill Payment    ${BILL_ELECTRIC}    ${AMOUNT_ZERO}
+    Validate Error    The amount must be greater than 0. Please enter a positive number.
 
-TC6-03 Zero amount
-    Select Bill Type    water
-    Set Bill Amount     0
-    Click Bill Confirm
-    Bill Payment Should Not Change Balance
-    sleep    2s
+TC04 จำนวนเงินติดลบ
+    Go To Bill Payment
+    Submit Bill Payment    ${BILL_ELECTRIC}    ${AMOUNT_NEGATIVE}
+    Validate Error    The amount must be greater than 0. Please enter a positive number.
 
-TC6-04 Negative amount
-    Select Bill Type    water
-    Set Bill Amount     -500
-    Click Bill Confirm
-    Bill Payment Should Not Change Balance
-    Sleep    2s
+TC05 ยอดเกินกว่ายอดเงินคงเหลือ
+    Go To Bill Payment
+    Submit Bill Payment    ${BILL_PHONE}    ${AMOUNT_OVER}
+    Validate Error    Your balance is not enough to complete the bill payment.
 
-TC6-05 Non-numeric amount
-    Select Bill Type   water
-    Set Bill Amount    50000
-    Click Bill Confirm
-    Bill Payment Should Not Change Balance
-    Sleep    2s
+
+# =========================================================
+# Scenario 7: Login ผ่านและจ่ายบิลสำเร็จ (Valid cases)
+# =========================================================
+
+TC06 ชำระค่าน้ำ 150 บาท
+    [Setup]   Update Balance By Amount    10000
+    Go To Bill Payment
+    ${old_balance}=    Get Balance
+    Submit Bill Payment    ${BILL_WATER}    ${AMOUNT_VALID1}
+    Validate Success
+    Reload Page
+    Verify Balance On Title    balance=${old_balance - ${AMOUNT_VALID1}}
+
+
+TC07 ชำระค่าไฟ 2000 บาท
+    [Setup]   Update Balance By Amount    9850
+    Go To Bill Payment
+    ${old_balance}=    Get Balance
+    Submit Bill Payment    ${BILL_ELECTRIC}    ${AMOUNT_VALID2}
+    Validate Success
+    Reload Page
+    Verify Balance On Title    balance=${old_balance - ${AMOUNT_VALID2}}
+
+TC08 ชำระค่าโทรศัพท์ 300 บาท
+    [Setup]   Update Balance By Amount    7850
+    Go To Bill Payment
+    ${old_balance}=    Get Balance
+    Submit Bill Payment    ${BILL_PHONE}    ${AMOUNT_VALID3}
+    Validate Success
+    Reload Page
+    Verify Balance On Title    balance=${old_balance - ${AMOUNT_VALID3}}
+
+
+TC09 ชำระเท่ากับยอดคงเหลือ
+    [Setup]   Update Balance By Amount    7750
+    Go To Bill Payment
+    ${old_balance}=    Get Balance
+    Submit Bill Payment    ${BILL_WATER}    ${AMOUNT_EQUAL}
+    Validate Success
+    Reload Page
+    Verify Balance On Title    balance=0
