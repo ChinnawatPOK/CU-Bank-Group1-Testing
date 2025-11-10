@@ -2,10 +2,10 @@
 Resource    ../../resources/imports.robot
 
 *** Variables ***
-${MONGO_URI}        mongodb+srv://userxx:passwordxx@cubankcluster.jcnfl4o.mongodb.net/?appName=CUBankCluster
-${DB_NAME}          test
+${MONGO_URI}        mongodb://127.0.0.1:27017/cu-bank
+${DB_NAME}          cu-bank
 ${COLLECTION_NAME}  users
-${ACCOUNT_ID}       1234567899
+${ACCOUNT_ID}       1234567892
 
 *** Keywords ***
 Delete Transactions On Account
