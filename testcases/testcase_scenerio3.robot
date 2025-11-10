@@ -9,6 +9,10 @@ Test Teardown  Close All Browsers
 
 *** Test Cases ***
 TC01 Deposit Success
+<<<<<<< HEAD
+=======
+    [Tags]    All Input
+>>>>>>> 1f962b7 (initital scenerio 3)
     [Setup]   Run Keywords    Delete Transactions On Account
     ...       AND   Update Balance To Zero
     Open Browser    http://localhost:3000  chrome
@@ -18,6 +22,7 @@ TC01 Deposit Success
     Verify Balance On Title  balance=500
     Verify History transaction should correct   expected_data=${scenerio3.TC_001.expected_history}
 
+<<<<<<< HEAD
 TC02 Deposit Failed Amount Is Negative
     [Setup]   Run Keywords    Delete Transactions On Account
     ...       AND   Update Balance To Zero
@@ -29,6 +34,9 @@ TC02 Deposit Failed Amount Is Negative
     Verify History transaction should empty
 
 TC03 Deposit Failed Amount Is Decimal
+=======
+TC02 Deposit Failed Amount Is Decimal
+>>>>>>> 1f962b7 (initital scenerio 3)
     [Setup]   Run Keywords    Delete Transactions On Account
     ...       AND   Update Balance To Zero
     Open Browser    http://localhost:3000  chrome
