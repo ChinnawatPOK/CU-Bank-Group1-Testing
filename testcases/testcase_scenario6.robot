@@ -6,7 +6,6 @@ Suite Teardown    Close Browser
 Resource          ../keywords/common/cubankCommonKeywords.robot
 Resource          ../keywords/common/mongoDatabaseKeywords.robot
 
-Variables         ../resources/testdata/scenario_bill.yml
 
 
 *** Variables ***
