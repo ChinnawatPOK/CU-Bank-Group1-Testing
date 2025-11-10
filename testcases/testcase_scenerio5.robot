@@ -3,6 +3,11 @@ Library           SeleniumLibrary
 Suite Setup       Login To Bank
 Suite Teardown    Close Browser
 
+Resource    ../keywords/common/cubankCommonKeywords.robot
+Resource    ../keywords/common/mongoDatabaseKeywords.robot
+
+Variables    ../resources/testdata/scenerio5.yml
+
 *** Variables ***
 ${BASE_URL}       http://localhost:3000
 ${BROWSER}        chrome
@@ -51,11 +56,9 @@ Validate Error
     Wait Until Element Is Visible    css:[cid="transfer-error-mes"]    timeout=5s
     ${txt}=    Get Text    css:[cid="transfer-error-mes"]
     Should Be Equal As Strings    ${txt}    ${msg}
-    Capture Page Screenshot
 
 Validate Success
     Wait Until Page Contains    Confirm    timeout=5s
-    Capture Page Screenshot
 
 Get Balance
     ${bal_text}=    Get Text    xpath=(//h2[text()="Balance:"]/following-sibling::h1)[1]
@@ -63,56 +66,10 @@ Get Balance
     [Return]        ${bal}
 
 *** Test Cases ***
-# A1,B3 — insufficient balance
-TC01 ยอดเงินไม่พอ (A1,B3)
-    Go To Transfer
-    Submit Transfer    ${TARGET_VALID}   ${AMOUNT_OVER}
-    Validate Error    Your balance is not enough to complete the transfer.
-
-# A1,B4 — amount ≤ 0
-TC02 จำนวนเงินต้องมากกว่า 0 (A1,B4)
-    Go To Transfer
-    Submit Transfer    ${TARGET_VALID}   ${AMOUNT_ZERO}
-    Validate Error    The amount must be greater than 0. Please enter a positive number.
-
-# A1,B5 — decimal
-TC03 จำนวนเงินต้องเป็นจำนวนเต็ม (A1,B5)
-    Go To Transfer
-    Submit Transfer    ${TARGET_VALID}   ${AMOUNT_DECIMAL}
-    Validate Error    The balance amount must be a whole number with no decimals.
-
-# A2 — account not found
-TC04 บัญชีไม่พบในระบบ (A2)
-    Go To Transfer
-    Submit Transfer    ${TARGET_NOTFOUND}    ${AMOUNT_VALID}
-    Validate Error    We couldn't find the recipient's account. Please double-check the account ID.
-
-# A3 — account < 10 digits
-TC05 เลขบัญชีไม่ครบ 10 หลัก (A3)
-    Go To Transfer
-    Submit Transfer    ${TARGET_SHORT}    ${AMOUNT_VALID}
-    Validate Error    The account number must be exactly 10 digits long
-
-# A4 — account > 10 digits
-TC06 เลขบัญชีเกิน 10 หลัก (A4)
-    Go To Transfer
-    Submit Transfer    ${TARGET_LONG}    ${AMOUNT_VALID}
-    Validate Error    Your account ID must be exactly 10 digits long.
-
-# A5 — non-numeric account
-TC07 เลขบัญชีต้องเป็นตัวเลขเท่านั้น (A5)
-    Go To Transfer
-    Submit Transfer    ${TARGET_TEXT}    ${AMOUNT_VALID}
-    Validate Error    Your account ID should contain numbers only.
-
-# A6 — transfer to your own account
-TC08 โอนไปหาตัวเองไม่ได้ (A6)
-    Go To Transfer
-    Submit Transfer    ${TARGET_SELF}    ${AMOUNT_VALID}
-    Validate Error    You cannot transfer to your own account.
-
 # A1,B1 — valid transfer
-TC09 โอนสำเร็จข้อมูลถูกต้อง (A1,B1)
+TC001 โอนสำเร็จข้อมูลถูกต้อง (A1,B1)
+    [Setup]   Run Keywords    Delete Transactions On Account
+    ...       AND   Update Balance By Amount    1000
     Go To Transfer
     ${old_balance}=    Get Balance
     Log To Console    Balance before transfer: ${old_balance}
@@ -120,11 +77,13 @@ TC09 โอนสำเร็จข้อมูลถูกต้อง (A1,B1)
     Validate Success
     Sleep             2s
     Reload Page
-    ${new_balance}=   Get Balance
-    Should Be True    ${new_balance} < ${old_balance}    Balance did not decrease!
+    Verify Balance On Title  balance=700
+    Verify History transaction should correct   expected_data=${scenerio5.TC_001.expected_history}
 
 # A1,B2 — transfer all funds
-TC010 โอนจำนวนเท่ายอดคงเหลือ (A1,B2)
+TC002 โอนจำนวนเท่ายอดคงเหลือ (A1,B2)
+    [Setup]   Run Keywords    Delete Transactions On Account
+    ...       AND   Update Balance By Amount    1000
     Go To Transfer
     ${old_balance}=    Get Balance
     Log To Console    Balance before transfer: ${old_balance}
@@ -132,7 +91,54 @@ TC010 โอนจำนวนเท่ายอดคงเหลือ (A1,B2)
     Validate Success
     Sleep             2s
     Reload Page
-    ${new_balance}=   Get Balance
-    Log To Console    Balance after transfer: ${new_balance}
-    Should Be Equal As Integers    ${new_balance}    0    Balance should be zero after full transfer
-    Log To Console    Balance is zero after full transfer
+    Verify Balance On Title  balance=0
+    Verify History transaction should correct   expected_data=${scenerio5.TC_002.expected_history}
+
+# A1,B3 — insufficient balance
+TC003 ยอดเงินไม่พอ (A1,B3)
+    [Setup]  Update Balance By Amount    1000
+    Go To Transfer
+    Submit Transfer    ${TARGET_VALID}   ${AMOUNT_OVER}
+    Validate Error    Your balance is not enough to complete the transfer.
+
+# A1,B4 — amount ≤ 0
+TC004 จำนวนเงินต้องมากกว่า 0 (A1,B4)
+    Go To Transfer
+    Submit Transfer    ${TARGET_VALID}   ${AMOUNT_ZERO}
+    Validate Error    The amount must be greater than 0. Please enter a positive number.
+
+# A1,B5 — decimal
+TC005 จำนวนเงินต้องเป็นจำนวนเต็ม (A1,B5)
+    Go To Transfer
+    Submit Transfer    ${TARGET_VALID}   ${AMOUNT_DECIMAL}
+    Validate Error    The balance amount must be a whole number with no decimals.
+
+# A2 — account not found
+TC006 บัญชีไม่พบในระบบ (A2)
+    Go To Transfer
+    Submit Transfer    ${TARGET_NOTFOUND}    ${AMOUNT_VALID}
+    Validate Error    We couldn't find the recipient's account. Please double-check the account ID.
+
+# A3 — account < 10 digits
+TC007 เลขบัญชีไม่ครบ 10 หลัก (A3)
+    Go To Transfer
+    Submit Transfer    ${TARGET_SHORT}    ${AMOUNT_VALID}
+    Validate Error    The account number must be exactly 10 digits long
+
+# A4 — account > 10 digits
+TC008 เลขบัญชีเกิน 10 หลัก (A4)
+    Go To Transfer
+    Submit Transfer    ${TARGET_LONG}    ${AMOUNT_VALID}
+    Validate Error    Your account ID must be exactly 10 digits long.
+
+# A5 — non-numeric account
+TC009 เลขบัญชีต้องเป็นตัวเลขเท่านั้น (A5)
+    Go To Transfer
+    Submit Transfer    ${TARGET_TEXT}    ${AMOUNT_VALID}
+    Validate Error    Your account ID should contain numbers only.
+
+# A6 — transfer to your own account
+TC010 โอนไปหาตัวเองไม่ได้ (A6)
+    Go To Transfer
+    Submit Transfer    ${TARGET_SELF}    ${AMOUNT_VALID}
+    Validate Error    You cannot transfer to your own account.
