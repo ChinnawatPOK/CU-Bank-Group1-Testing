@@ -63,3 +63,10 @@ Verify History transaction should correct
 
 Verify History transaction should empty
     Wait Until Element Is Not Visible  xpath=//div[@class="history-list"]/div[@class="account-form"]
+
+Validate Error Message
+    [Arguments]    ${msg}
+    Wait Until Element Is Visible    css:[cid="deposite-error-mes"]    timeout=5s
+    ${txt}=    Get Text    css:[cid="deposite-error-mes"]
+    Should Be Equal As Strings    ${txt}    ${msg}
+    Capture Page Screenshot
