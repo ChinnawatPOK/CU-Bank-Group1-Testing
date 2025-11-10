@@ -31,6 +31,15 @@ class MongoKeywords:
         )
         return result.modified_count
 
+    def update_account_balance_by_amount(self, collection_name, account_id, amount):
+        """Update balance to 0 for a given accountId"""
+        collection = self.db[collection_name]
+        result = collection.update_one(
+            {"accountId": account_id},
+            {"$set": {"balance": amount}}
+        )
+        return result.modified_count
+
     def disconnect_mongo(self):
         """Close the MongoDB connection"""
         self.db.client.close()
