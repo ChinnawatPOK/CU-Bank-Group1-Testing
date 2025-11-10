@@ -65,6 +65,11 @@ Get Balance
     ${bal}=         Convert To Integer    ${bal_text}
     [Return]        ${bal}
 
+Get Balance
+    ${bal_text}=    Get Text    xpath=(//h2[text()="Balance:"]/following-sibling::h1)[1]
+    ${bal}=         Convert To Integer    ${bal_text}
+    [Return]        ${bal}
+
 *** Test Cases ***
 # A1,B1 — valid transfer
 TC001 โอนสำเร็จข้อมูลถูกต้อง (A1,B1)
