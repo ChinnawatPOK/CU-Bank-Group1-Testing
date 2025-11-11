@@ -10,9 +10,12 @@ ${BROWSER}       chrome
 *** Keywords ***
 Login with account number and password
     [Arguments]    ${accountNumber}  ${password}
+    Open Browser    http://localhost:3000  chrome
+    Maximize Browser Window
     Input Text   //*[@id='accountId']  ${accountNumber}
     Input Text   //*[@id='password']  ${password}
     Click Button  //*[@id="root"]/div/div/div/form/button
+    Wait Until Page Contains    Account ID:
     
 Make deposit transaction success
     [Arguments]    ${depositAmount}
