@@ -3,35 +3,33 @@ Library           SeleniumLibrary
 Suite Setup       Login To Bank
 Suite Teardown    Close Browser
 
-# ไม่พึ่ง DB อีกต่อไป: ถ้าไฟล์ของคุณ import resources พวก Mongo ไว้ในที่อื่น ให้คอมเมนต์ออกสำหรับชุดนี้
+Resource          ../resources/imports.robot
+Resource          ../keywords/common/mongoDatabaseKeywords.robot
+Resource          ../keywords/common/cubankCommonKeywords.robot
 
 *** Variables ***
-${BASE_URL}         http://localhost:3000
-${BROWSER}          chrome
+${BASE_URL}           http://localhost:3000
+${BROWSER}            chrome
 
-# >>> ใช้ที่คุณให้มา <<<
-${VALID_ACC}        6870194521
-${PASSWORD}         1234
+${VALID_ACC}          6870194521
+${PASSWORD}           1234
 
-# ค่าที่ใช้ในเทส
-${BALANCE_BASE}     1500
-${WITHDRAW_OVER}    2000
-${WITHDRAW_OK}      200
-${WITHDRAW_ZERO}    0
-${WITHDRAW_DEC}     100.5
-${WITHDRAW_TEXT}    abc
+${BALANCE_BASE}       1500
+${WITHDRAW_OVER}      2000
+${WITHDRAW_OK}        200
+${WITHDRAW_ZERO}      0
+${WITHDRAW_DEC}       100.5
+${WITHDRAW_TEXT}      abc
 
-# ข้อความจาก src หน้า Account
-${MSG_INSUFFICIENT}     Your balance is not enough to complete the withdrawal.
-${MSG_GT_ZERO}          The amount must be greater than 0. Please enter a positive number.
-${MSG_DECIMAL}          The balance amount must be a whole number with no decimals.
-${MSG_INVALID}          Invalid balance amount. Please enter a valid number.
+${MSG_INSUFFICIENT}   Your balance is not enough to complete the withdrawal.
+${MSG_GT_ZERO}        The amount must be greater than 0. Please enter a positive number.
+${MSG_DECIMAL}        The balance amount must be a whole number with no decimals.
+${MSG_INVALID}        Invalid balance amount. Please enter a valid number.
 
 *** Keywords ***
 Login To Bank
     Open Browser    ${BASE_URL}    ${BROWSER}
     Maximize Browser Window
-    # สมมติหน้า login มี cid l1/l2/lc ตามสคริปต์ก่อนหน้า (ถ้าไม่ตรง แจ้ง cid ที่ถูกต้องมาได้)
     Wait Until Page Contains Element    css:[cid="l1"]    15s
     Input Text       css:[cid="l1"]    ${VALID_ACC}
     Input Password   css:[cid="l2"]    ${PASSWORD}
@@ -49,7 +47,6 @@ Go To Withdraw
     Scroll Element Into View            xpath=//h2[normalize-space()="Withdraw"]
 
 Wait For Balance Number
-    # รอจนกว่าจะเห็นตัวเลขในตำแหน่ง Balance จริง ๆ (API อาจหน่วง)
     Wait Until Keyword Succeeds    10x    1s    Balance Element Should Contain Digits
 
 Balance Element Should Contain Digits
@@ -62,39 +59,6 @@ Get Balance
     ${bal}=         Convert To Integer    ${bal_text}
     RETURN          ${bal}
 
-Ensure Balance Is
-    [Arguments]    ${expected}
-    Go To Account
-    ${current}=    Get Balance
-    ${diff}=       Evaluate    ${expected} - ${current}
-    Run Keyword If    ${diff} > 0    Deposit By Amount    ${diff}
-    ...    ELSE IF    ${diff} < 0    Withdraw By Amount   ${diff * -1}
-    # diff==0 ก็ไม่ทำอะไร
-    Reload Page
-    ${after}=    Get Balance
-    Should Be Equal As Integers    ${after}    ${expected}
-
-Deposit By Amount
-    [Arguments]    ${amount}
-    # ไปที่ส่วน Deposit (ใช้ cid='d1' และปุ่ม cid='dc' จากโค้ด)
-    Scroll Element Into View    xpath=//h2[normalize-space()="Deposit"]
-    Wait Until Page Contains Element    xpath=//h2[normalize-space()="Deposit"]/following::input[@cid="d1"][1]    10s
-    Clear Element Text          xpath=//h2[normalize-space()="Deposit"]/following::input[@cid="d1"][1]
-    Input Text                  xpath=//h2[normalize-space()="Deposit"]/following::input[@cid="d1"][1]    ${amount}
-    Click Button                css:[cid="dc"]
-    Sleep    1s
-    # หน้ารีโหลดเองใน src; เผื่อไว้
-    Wait Until Page Contains    Account ID:    10s
-
-Withdraw By Amount
-    [Arguments]    ${amount}
-    Go To Withdraw
-    Wait Until Page Contains Element    xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]    10s
-    Clear Element Text                  xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]
-    Input Text                          xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]    ${amount}
-    Click Button                        css:[cid="wc"]
-    Sleep    1s
-
 Submit Withdraw (Plain)
     [Arguments]    ${amount}
     Go To Withdraw
@@ -102,7 +66,7 @@ Submit Withdraw (Plain)
     Clear Element Text                  xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]
     Input Text                          xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]    ${amount}
     Click Button                        css:[cid="wc"]
-    Sleep    1s
+    Sleep    500ms
 
 Submit Withdraw (Force JS Value)
     [Arguments]    ${value_as_text}
@@ -119,13 +83,14 @@ Submit Withdraw (Force JS Value)
     ...    })();
     Execute Javascript    ${js}
     Click Button          css:[cid="wc"]
-    Sleep    1s
+    Sleep    500ms
 
 Validate Withdraw Error
     [Arguments]    ${msg}
     Wait Until Element Is Visible    css:[cid="withdraw-error-mes"]    5s
     ${txt}=    Get Text    css:[cid="withdraw-error-mes"]
     Should Be Equal As Strings    ${txt}    ${msg}
+    Capture Page Screenshot
 
 Validate Balance Equals
     [Arguments]    ${expected}
@@ -133,44 +98,83 @@ Validate Balance Equals
     Should Be Equal As Integers    ${cur}    ${expected}
 
 *** Test Cases ***
-# TC01 — Withdraw fail (> balance)
+# ============================ TC01 ============================
+# Withdraw fail (> balance) — ต้องขึ้น error และไม่มี history ใหม่, balance = 1500
 TC01 Withdraw fail (> balance)
-    Ensure Balance Is        ${BALANCE_BASE}
-    ${before}=               Get Balance
+    # --- เตรียมสภาพด้วยคีย์เวิร์ด Mongo ของคุณ ---
+    Delete Transactions On Account
+    Update Balance To Zero
+    Update Balance By Amount    ${BALANCE_BASE}
+    # --- โหลดหน้า/ยืนยันยอด/ยืนยัน history ว่าง ---
+    Go To Account
+    Reload Page
+    ${before}=    Get Balance
     Should Be Equal As Integers    ${before}    ${BALANCE_BASE}
-    Submit Withdraw (Plain)        ${WITHDRAW_OVER}     # 2000
-    Validate Withdraw Error        ${MSG_INSUFFICIENT}
-    Validate Balance Equals        ${BALANCE_BASE}
+    Verify History transaction should empty
+    # --- ทำเคส ---
+    Submit Withdraw (Plain)      ${WITHDRAW_OVER}
+    Validate Withdraw Error      ${MSG_INSUFFICIENT}
+    Validate Balance Equals      ${BALANCE_BASE}
+    Verify History transaction should empty
 
-# TC02 — Withdraw success (≤ balance) : 1500 - 200 = 1300
+# ============================ TC02 ============================
+# Withdraw success (≤ balance) — 1500 - 200 = 1300 และมีแถวใน History ถูกต้อง
 TC02 Withdraw success (≤ balance)
-    Ensure Balance Is        ${BALANCE_BASE}
-    Submit Withdraw (Plain)  ${WITHDRAW_OK}
+    Delete Transactions On Account
+    Update Balance To Zero
+    Update Balance By Amount    ${BALANCE_BASE}
+    Go To Account
+    Reload Page
+    ${before}=    Get Balance
+    Should Be Equal As Integers    ${before}    ${BALANCE_BASE}
+    Verify History transaction should empty
+
+    Submit Withdraw (Plain)      ${WITHDRAW_OK}
     Sleep    1s
     Reload Page
-    Validate Balance Equals  1300
+    Validate Balance Equals      1300
+    # ตรวจ history 1 รายการล่าสุด
+    &{h1}=    Create Dictionary    type=Withdraw    amount=${WITHDRAW_OK}    balance=1300
+    @{expected}=    Create List    ${h1}
+    Verify History transaction should correct    ${expected}
 
-# TC03 — Withdraw invalid (≤ 0)
+# ============================ TC03 ============================
+# Withdraw invalid (≤ 0) — ขึ้นข้อความ >0, ไม่เพิ่ม history, balance = 1500
 TC03 Withdraw invalid (≤ 0)
-    Ensure Balance Is        ${BALANCE_BASE}
-    ${before}=               Get Balance
-    Submit Withdraw (Plain)  ${WITHDRAW_ZERO}
-    Validate Withdraw Error  ${MSG_GT_ZERO}
-    Validate Balance Equals  ${before}
+    Delete Transactions On Account
+    Update Balance To Zero
+    Update Balance By Amount    ${BALANCE_BASE}
+    Go To Account
+    Reload Page
+    ${before}=    Get Balance
+    Should Be Equal As Integers    ${before}    ${BALANCE_BASE}
+    Verify History transaction should empty
 
-# TC04 — Withdraw invalid (non-integer / non-numeric)
-# หมายเหตุ: โค้ดจริงใช้ parseInt → 100.5 จะถูกตีเป็น 100 (อาจ "ผ่าน")
-# เทสนี้ใช้ JS ยัดค่าเพื่อตรวจตามสเปก ถ้าแอปไม่แสดง error เทสจะล้ม → ช่วยเผย defect
+    Submit Withdraw (Plain)      ${WITHDRAW_ZERO}
+    Validate Withdraw Error      ${MSG_GT_ZERO}
+    Validate Balance Equals      ${BALANCE_BASE}
+    Verify History transaction should empty
+
+# ============================ TC04 ============================
+# Withdraw invalid (non-integer / non-numeric) — ต้องขึ้น error และไม่เพิ่ม history
 TC04 Withdraw invalid (non-integer / non-numeric)
-    Ensure Balance Is        ${BALANCE_BASE}
-    ${before}=               Get Balance
+    Delete Transactions On Account
+    Update Balance To Zero
+    Update Balance By Amount    ${BALANCE_BASE}
+    Go To Account
+    Reload Page
+    ${before}=    Get Balance
+    Should Be Equal As Integers    ${before}    ${BALANCE_BASE}
+    Verify History transaction should empty
 
     # 4.1 decimal
     Submit Withdraw (Force JS Value)    ${WITHDRAW_DEC}
     Validate Withdraw Error             ${MSG_DECIMAL}
-    Validate Balance Equals             ${before}
+    Validate Balance Equals             ${BALANCE_BASE}
+    Verify History transaction should empty
 
     # 4.2 non-numeric
     Submit Withdraw (Force JS Value)    ${WITHDRAW_TEXT}
     Validate Withdraw Error             ${MSG_INVALID}
-    Validate Balance Equals             ${before}
+    Validate Balance Equals             ${BALANCE_BASE}
+    Verify History transaction should empty
