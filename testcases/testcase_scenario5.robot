@@ -12,7 +12,7 @@ Variables    ../resources/testdata/scenerio5.yml
 ${BASE_URL}       http://localhost:3000
 ${BROWSER}        chrome
 
-${VALID_ACC}      1234567892
+${VALID_ACC}      1234567894
 ${PASSWORD}       1234
 
 ${TARGET_VALID}   2222222222         # A1: correct format + exists
@@ -27,18 +27,10 @@ ${AMOUNT_EQUAL}   1000               # B2 equal balance test
 ${AMOUNT_OVER}    20000              # B3 > balance
 ${AMOUNT_ZERO}    0                  # B4 <= 0
 ${AMOUNT_DECIMAL}    120.5
+${AMOUNT_NON_INTEGER}    e1
 
 
 *** Keywords ***
-Login To Bank
-    Open Browser    ${BASE_URL}    ${BROWSER}
-    Maximize Browser Window
-    Wait Until Page Contains Element    css:[cid="l1"]
-    Input Text       css:[cid="l1"]    ${VALID_ACC}
-    Input Password   css:[cid="l2"]    ${PASSWORD}
-    Click Button     css:[cid="lc"]
-    Wait Until Page Contains    Account ID:
-
 Go To Transfer
     Go To    ${BASE_URL}/account
     Wait Until Page Contains Element    xpath=//h2[text()="Transfer"]
@@ -60,20 +52,9 @@ Validate Error
 Validate Success
     Wait Until Page Contains    Confirm    timeout=5s
 
-Get Balance
-    ${bal_text}=    Get Text    xpath=(//h2[text()="Balance:"]/following-sibling::h1)[1]
-    ${bal}=         Convert To Integer    ${bal_text}
-    [Return]        ${bal}
-
-Get Balance
-    ${bal_text}=    Get Text    xpath=(//h2[text()="Balance:"]/following-sibling::h1)[1]
-    ${bal}=         Convert To Integer    ${bal_text}
-    [Return]        ${bal}
-
 *** Test Cases ***
-# A1,B1 — valid transfer
-TC001 โอนสำเร็จข้อมูลถูกต้อง (A1,B1)
-    [Setup]   Run Keywords    Delete Transactions On Account
+TC001 โอนสำเร็จข้อมูลถูกต้อง 
+    [Setup]   Run Keywords    Delete Transactions On Account    ${VALID_ACC}
     ...       AND   Update Balance By Amount    1000
     Go To Transfer
     ${old_balance}=    Get Balance
@@ -85,9 +66,9 @@ TC001 โอนสำเร็จข้อมูลถูกต้อง (A1,B1)
     Verify Balance On Title  balance=700
     Verify History transaction should correct   expected_data=${scenerio5.TC_001.expected_history}
 
-# A1,B2 — transfer all funds
-TC002 โอนจำนวนเท่ายอดคงเหลือ (A1,B2)
-    [Setup]   Run Keywords    Delete Transactions On Account
+
+TC002 โอนจำนวนเท่ายอดคงเหลือ 
+    [Setup]   Run Keywords    Delete Transactions On Account    ${VALID_ACC}
     ...       AND   Update Balance By Amount    1000
     Go To Transfer
     ${old_balance}=    Get Balance
@@ -99,51 +80,58 @@ TC002 โอนจำนวนเท่ายอดคงเหลือ (A1,B2)
     Verify Balance On Title  balance=0
     Verify History transaction should correct   expected_data=${scenerio5.TC_002.expected_history}
 
-# A1,B3 — insufficient balance
-TC003 ยอดเงินไม่พอ (A1,B3)
-    [Setup]  Update Balance By Amount    1000
+
+TC003 ยอดเงินไม่พอ 
+    [Setup]   Run Keywords    Delete Transactions On Account    ${VALID_ACC}
+    ...       AND   Update Balance By Amount    1000
     Go To Transfer
     Submit Transfer    ${TARGET_VALID}   ${AMOUNT_OVER}
     Validate Error    Your balance is not enough to complete the transfer.
 
-# A1,B4 — amount ≤ 0
-TC004 จำนวนเงินต้องมากกว่า 0 (A1,B4)
+
+TC004 จำนวนเงินต้องมากกว่า 0 
     Go To Transfer
     Submit Transfer    ${TARGET_VALID}   ${AMOUNT_ZERO}
     Validate Error    The amount must be greater than 0. Please enter a positive number.
 
-# A1,B5 — decimal
-TC005 จำนวนเงินต้องเป็นจำนวนเต็ม (A1,B5)
+
+TC005 จำนวนเงินต้องเป็นจำนวนเต็ม 
     Go To Transfer
     Submit Transfer    ${TARGET_VALID}   ${AMOUNT_DECIMAL}
     Validate Error    The balance amount must be a whole number with no decimals.
 
-# A2 — account not found
-TC006 บัญชีไม่พบในระบบ (A2)
+TC006 จำนวนเงินต้องเป็นจำนวนเต็ม (2) 
+    Go To Transfer
+    Submit Transfer    ${TARGET_VALID}   ${AMOUNT_NON_INTEGER}
+    Validate Error    The balance amount must be a whole number with no decimals.
+
+
+TC007 บัญชีไม่พบในระบบ 
     Go To Transfer
     Submit Transfer    ${TARGET_NOTFOUND}    ${AMOUNT_VALID}
     Validate Error    We couldn't find the recipient's account. Please double-check the account ID.
 
-# A3 — account < 10 digits
-TC007 เลขบัญชีไม่ครบ 10 หลัก (A3)
+
+TC008 เลขบัญชีไม่ครบ 10 หลัก 
     Go To Transfer
     Submit Transfer    ${TARGET_SHORT}    ${AMOUNT_VALID}
-    Validate Error    The account number must be exactly 10 digits long
+    Validate Error    The account number must be exactly 10 digits long.
 
-# A4 — account > 10 digits
-TC008 เลขบัญชีเกิน 10 หลัก (A4)
+
+TC009 เลขบัญชีเกิน 10 หลัก 
     Go To Transfer
     Submit Transfer    ${TARGET_LONG}    ${AMOUNT_VALID}
     Validate Error    Your account ID must be exactly 10 digits long.
 
-# A5 — non-numeric account
-TC009 เลขบัญชีต้องเป็นตัวเลขเท่านั้น (A5)
+
+TC010 เลขบัญชีต้องเป็นตัวเลขเท่านั้น 
     Go To Transfer
     Submit Transfer    ${TARGET_TEXT}    ${AMOUNT_VALID}
     Validate Error    Your account ID should contain numbers only.
 
-# A6 — transfer to your own account
-TC010 โอนไปหาตัวเองไม่ได้ (A6)
+
+TC011 โอนไปหาตัวเองไม่ได้ 
     Go To Transfer
     Submit Transfer    ${TARGET_SELF}    ${AMOUNT_VALID}
     Validate Error    You cannot transfer to your own account.
+

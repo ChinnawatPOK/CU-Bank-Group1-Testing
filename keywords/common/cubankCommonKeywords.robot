@@ -73,3 +73,19 @@ Validate Error Message
     ${txt}=    Get Text    css:[cid="deposite-error-mes"]
     Should Be Equal As Strings    ${txt}    ${msg}
     Capture Page Screenshot
+
+Login To Bank
+    [Documentation]    Logs into the CU Bank application.
+    Open Browser    ${BASE_URL}    ${BROWSER}
+    Maximize Browser Window
+    Wait Until Page Contains Element    css:[cid="l1"]    timeout=10s
+    Input Text       css:[cid="l1"]    ${VALID_ACC}
+    Input Password   css:[cid="l2"]    ${PASSWORD}
+    Click Button     css:[cid="lc"]
+    Wait Until Page Contains    Account ID:    timeout=10s
+
+Get Balance
+    [Documentation]    Read the numeric account balance from the UI.
+    ${bal_text}=    Get Text    xpath=(//h2[text()="Balance:"]/following-sibling::h1)[1]
+    ${bal}=         Convert To Integer    ${bal_text}
+    [Return]        ${bal}
