@@ -2,10 +2,10 @@
 Resource    ../../resources/imports.robot
 
 *** Variables ***
-${MONGO_URI}        mongodb://127.0.0.1:27017/cu-bank
-${DB_NAME}          cu-bank
+${MONGO_URI}        mongodb+srv://peerapatworkformal_db_user:FW6gT5fhJnQ6fVRy@cubankcluster.846cpsh.mongodb.net/?appName=CUBankCluster
+${DB_NAME}          test
 ${COLLECTION_NAME}  users
-${ACCOUNT_ID}       1234567892
+${ACCOUNT_ID}       6870194521
 
 *** Keywords ***
 Delete Transactions On Account
