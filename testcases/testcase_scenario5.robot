@@ -55,7 +55,7 @@ Validate Success
 *** Test Cases ***
 TC001 โอนสำเร็จข้อมูลถูกต้อง 
     [Setup]   Run Keywords    Delete Transactions On Account    ${VALID_ACC}
-    ...       AND   Update Balance By Amount    1000
+    ...       AND   Update Balance By Amount    ${VALID_ACC}    1000
     Go To Transfer
     ${old_balance}=    Get Balance
     Log To Console    Balance before transfer: ${old_balance}
@@ -69,7 +69,7 @@ TC001 โอนสำเร็จข้อมูลถูกต้อง
 
 TC002 โอนจำนวนเท่ายอดคงเหลือ 
     [Setup]   Run Keywords    Delete Transactions On Account    ${VALID_ACC}
-    ...       AND   Update Balance By Amount    1000
+    ...       AND   Update Balance By Amount    ${VALID_ACC}    1000
     Go To Transfer
     ${old_balance}=    Get Balance
     Log To Console    Balance before transfer: ${old_balance}
@@ -83,7 +83,7 @@ TC002 โอนจำนวนเท่ายอดคงเหลือ
 
 TC003 ยอดเงินไม่พอ 
     [Setup]   Run Keywords    Delete Transactions On Account    ${VALID_ACC}
-    ...       AND   Update Balance By Amount    1000
+    ...       AND   Update Balance By Amount    ${VALID_ACC}    1000
     Go To Transfer
     Submit Transfer    ${TARGET_VALID}   ${AMOUNT_OVER}
     Validate Error    Your balance is not enough to complete the transfer.

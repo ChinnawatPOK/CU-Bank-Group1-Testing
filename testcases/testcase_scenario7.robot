@@ -64,7 +64,7 @@ Validate Success
 *** Test Cases ***
 TC001 ชำระค่าน้ำ 150 บาท
     [Setup]   Run Keywords    Delete Transactions On Account    ${VALID_ACC}
-    ...       AND   Update Balance By Amount    10000
+    ...       AND   Update Balance By Amount    ${VALID_ACC}    1000
     Go To Bill Payment
     Submit Bill Payment    ${BILL_WATER}    ${AMOUNT_VALID1}
     Validate Success
