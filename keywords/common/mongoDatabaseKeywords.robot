@@ -2,9 +2,10 @@
 Resource    ../../resources/imports.robot
 
 *** Variables ***
-${MONGO_URI}        mongodb+srv://chinnawat_kaewchim_db_user:0VFL8UIiiD8yHYPN@cubankcluster.jcnfl4o.mongodb.net/?appName=CUBankCluster
+${MONGO_URI}        mongodb+srv://peerapatworkformal_db_user:FW6gT5fhJnQ6fVRy@cubankcluster.846cpsh.mongodb.net/?appName=CUBankCluster
 ${DB_NAME}          test
 ${COLLECTION_NAME}  users
+${ACCOUNT_ID}       6870194521
 
 *** Keywords ***
 Delete Transactions On Account
@@ -27,7 +28,7 @@ Update Balance By Amount
     ${updated}=    update_account_balance_by_amount    ${COLLECTION_NAME}    ${accountId}  ${amount}
     Log To Console    Balance updated for ${ACCOUNT_ID}, modified: ${updated}
     Disconnect Mongo
-    
+
 Delete Account By Id
     [Arguments]    ${accountId}
     Connect To Mongo    ${MONGO_URI}    ${DB_NAME}

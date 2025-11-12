@@ -1,48 +1,905 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.14.0 on darwin)" generated="2025-11-07T00:18:13.372550" rpa="false" schemaversion="5">
-<suite id="s1" name="Testcases" source="/Users/chinnawat-pok/Documents/CU-Bank-Group1-Testing/testcases">
-<suite id="s1-s1" name="Testcase Scenerio1" source="/Users/chinnawat-pok/Documents/CU-Bank-Group1-Testing/testcases/testcase_scenerio1.robot">
-<test id="s1-s1-t1" name="Verify registration form with all input field" line="6">
+<robot generator="Robot 7.3.2 (Python 3.13.9 on win32)" generated="2025-11-12T22:10:48.888933" rpa="false" schemaversion="5">
+<suite id="s1" name="Testcase Scenerio4" source="C:\Users\Name\Desktop\CODING\MASTER Degree\Testprogram\GroupProject\CU_BANK\Github\CU-Bank-Group1-Testing\testcases\testcase_scenerio4.robot">
+<kw name="Login To Bank" type="SETUP">
+<msg time="2025-11-12T22:10:49.108438" level="TRACE">Arguments: [  ]</msg>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-11-07T00:18:13.460777" level="INFO">Opening browser 'chrome' to base url 'https://panaryco.wixsite.com/myhotel'.</msg>
-<arg>https://panaryco.wixsite.com/myhotel</arg>
-<arg>chrome</arg>
+<msg time="2025-11-12T22:10:49.108954" level="TRACE">Arguments: [ 'http://localhost:3000' | 'chrome' ]</msg>
+<msg time="2025-11-12T22:10:49.109034" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-11-12T22:10:49.110023" level="DEBUG">Selenium Manager binary found at: C:\Users\Name\Desktop\CODING\MASTER Degree\Testprogram\GroupProject\CU_BANK\Github\CU-Bank-Group1-Testing\env\Lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe</msg>
+<msg time="2025-11-12T22:10:49.110086" level="DEBUG">Executing process: C:\Users\Name\Desktop\CODING\MASTER Degree\Testprogram\GroupProject\CU_BANK\Github\CU-Bank-Group1-Testing\env\Lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe --browser chrome --language-binding python --output json</msg>
+<msg time="2025-11-12T22:10:49.161247" level="DEBUG">Driver path: C:\Python313\Scripts\chromedriver.exe</msg>
+<msg time="2025-11-12T22:10:49.161312" level="DEBUG">Browser path: C:\Program Files\Google\Chrome\Application\chrome.exe</msg>
+<msg time="2025-11-12T22:10:49.164077" level="DEBUG">Started executable: `C:\Python313\Scripts\chromedriver.exe` in a child process with pid: 23112 using 0 to output -3</msg>
+<msg time="2025-11-12T22:10:49.677235" level="DEBUG">POST http://localhost:61151/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': &lt;PageLoadStrategy.normal: 'normal'&gt;, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe', 'args': []}}}}</msg>
+<msg time="2025-11-12T22:10:49.677781" level="DEBUG">Starting new HTTP connection (1): localhost:61151</msg>
+<msg time="2025-11-12T22:10:50.152192" level="DEBUG">http://localhost:61151 "POST /session HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.152336" level="DEBUG">Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"142.0.7444.60","chrome":{"chromedriverVersion":"142.0.7444.59 (4b8153ab58d3c3f4c9f7e4baad9616ecf80db5fa-refs/branch-heads/7444_52@{#4})","userDataDir":"C:\\Users\\Name\\AppData\\Local\\Temp\\scoped_dir23112_799118763"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:61154"},"goog:processID":22524,"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"windows","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"a1543bd427a349ca859e500eea042b5c"}} | headers=HTTPHeaderDict({'Content-Length': '903', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.152419" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.152563" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/timeouts {'script': 5000}</msg>
+<msg time="2025-11-12T22:10:50.153553" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/timeouts HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.153635" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.153695" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.153777" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/timeouts {'implicit': 0}</msg>
+<msg time="2025-11-12T22:10:50.155185" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/timeouts HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.155356" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.155423" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.155723" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/timeouts {'pageLoad': 300000}</msg>
+<msg time="2025-11-12T22:10:50.156923" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/timeouts HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.157017" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.157077" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.157167" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/url {'url': 'http://localhost:3000'}</msg>
+<msg time="2025-11-12T22:10:50.705408" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/url HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.705586" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.705675" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.705728" level="DEBUG">Opened browser with session id a1543bd427a349ca859e500eea042b5c.</msg>
+<msg time="2025-11-12T22:10:50.705817" level="TRACE">Return: 1</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-11-07T00:18:13.460672" elapsed="7.753275"/>
+<status status="PASS" start="2025-11-12T22:10:49.108832" elapsed="1.597072"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:50.706280" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-11-12T22:10:50.706448" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/window/maximize {}</msg>
+<msg time="2025-11-12T22:10:50.736704" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/window/maximize HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.736831" level="DEBUG">Remote response: status=200 | data={"value":{"height":1408,"width":3456,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '52', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.736896" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.736957" level="TRACE">Return: None</msg>
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-11-07T00:18:21.214626" elapsed="0.426019"/>
+<status status="PASS" start="2025-11-12T22:10:50.706199" elapsed="0.030812"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:50.737541" level="TRACE">Arguments: [ 'css:[cid="l1"]' | datetime.timedelta(seconds=15) ]</msg>
+<msg time="2025-11-12T22:10:50.737789" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'css selector', 'value': '[cid="l1"]'}</msg>
+<msg time="2025-11-12T22:10:50.748579" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.748711" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.3"}]} | headers=HTTPHeaderDict({'Content-Length': '127', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.748987" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.749085" level="TRACE">Return: None</msg>
+<arg>css:[cid="l1"]</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-12T22:10:50.737181" elapsed="0.011955"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:50.749541" level="TRACE">Arguments: [ 'css:[cid="l1"]' | '6870194521' ]</msg>
+<msg time="2025-11-12T22:10:50.749612" level="INFO">Typing text '6870194521' into text field 'css:[cid="l1"]'.</msg>
+<msg time="2025-11-12T22:10:50.749729" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'css selector', 'value': '[cid="l1"]'}</msg>
+<msg time="2025-11-12T22:10:50.755953" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.756067" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.3"}]} | headers=HTTPHeaderDict({'Content-Length': '127', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.756135" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.756229" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.3/clear {}</msg>
+<msg time="2025-11-12T22:10:50.780048" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.3/clear HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.780183" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.780253" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.780384" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.3/value {'text': '6870194521', 'value': ['6', '8', '7', '0', '1', '9', '4', '5', '2', '1']}</msg>
+<msg time="2025-11-12T22:10:50.834222" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.3/value HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.834350" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.834433" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.834492" level="TRACE">Return: None</msg>
+<arg>css:[cid="l1"]</arg>
+<arg>${VALID_ACC}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T22:10:50.749318" elapsed="0.085218"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:50.834894" level="TRACE">Arguments: [ 'css:[cid="l2"]' | '1234' ]</msg>
+<msg time="2025-11-12T22:10:50.834963" level="INFO">Typing password into text field 'css:[cid="l2"]'.</msg>
+<msg time="2025-11-12T22:10:50.835064" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'css selector', 'value': '[cid="l2"]'}</msg>
+<msg time="2025-11-12T22:10:50.842218" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.842410" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.4"}]} | headers=HTTPHeaderDict({'Content-Length': '127', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.842475" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.842572" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.4/clear {}</msg>
+<msg time="2025-11-12T22:10:50.863269" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.4/clear HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.863397" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.863463" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.863505" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2025-11-12T22:10:50.897330" level="DEBUG">Log level changed from NONE to TRACE.</msg>
+<msg time="2025-11-12T22:10:50.897395" level="TRACE">Return: None</msg>
+<arg>css:[cid="l2"]</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T22:10:50.834700" elapsed="0.062738"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:50.897743" level="TRACE">Arguments: [ 'css:[cid="lc"]' ]</msg>
+<msg time="2025-11-12T22:10:50.897802" level="INFO">Clicking button 'css:[cid="lc"]'.</msg>
+<msg time="2025-11-12T22:10:50.897903" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'css selector', 'value': '[cid="lc"]'}</msg>
+<msg time="2025-11-12T22:10:50.904171" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.904377" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.5"}]} | headers=HTTPHeaderDict({'Content-Length': '127', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.904522" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.904716" level="DEBUG">GET http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.5/name {}</msg>
+<msg time="2025-11-12T22:10:50.909561" level="DEBUG">http://localhost:61151 "GET /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.5/name HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.909757" level="DEBUG">Remote response: status=200 | data={"value":"button"} | headers=HTTPHeaderDict({'Content-Length': '18', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.909896" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.910115" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'css selector', 'value': '[cid="lc"]'}</msg>
+<msg time="2025-11-12T22:10:50.916280" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.916459" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.5"}]} | headers=HTTPHeaderDict({'Content-Length': '127', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.916588" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.916770" level="DEBUG">GET http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.5/name {}</msg>
+<msg time="2025-11-12T22:10:50.922425" level="DEBUG">http://localhost:61151 "GET /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.5/name HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.922640" level="DEBUG">Remote response: status=200 | data={"value":"button"} | headers=HTTPHeaderDict({'Content-Length': '18', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.922787" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.922996" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.5/click {}</msg>
+<msg time="2025-11-12T22:10:50.978729" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.049F38D6E94A63F08FD76048B2B24313.e.5/click HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.978855" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.978977" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:50.979076" level="TRACE">Return: None</msg>
+<arg>css:[cid="lc"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T22:10:50.897600" elapsed="0.081524"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:50.979460" level="TRACE">Arguments: [ 'Account ID:' | datetime.timedelta(seconds=15) ]</msg>
+<msg time="2025-11-12T22:10:50.979642" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': "//*[contains(., 'Account ID:')]"}</msg>
+<msg time="2025-11-12T22:10:50.986267" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:50.986353" level="DEBUG">Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:50.986411" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:51.187194" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': "//*[contains(., 'Account ID:')]"}</msg>
+<msg time="2025-11-12T22:10:51.197117" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:51.197353" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.18"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.19"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.20"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.21"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.22"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.23"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.24"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.25"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.26"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.27"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.28"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.29"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.30"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.1011051E271D746BA4597635F20AC483.e.31"}]} | headers=HTTPHeaderDict({'Content-Length': '1649', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:51.197523" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:51.197668" level="TRACE">Return: None</msg>
+<arg>Account ID:</arg>
+<arg>15s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-12T22:10:50.979294" elapsed="0.218460"/>
+</kw>
+<msg time="2025-11-12T22:10:51.197942" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-11-12T22:10:49.108356" elapsed="2.089660"/>
+</kw>
+<test id="s1-t1" name="TC02 Withdraw success (≤ balance)" line="156">
+<kw name="Delete Transactions On Account" owner="mongoDatabaseKeywords">
+<msg time="2025-11-12T22:10:51.199815" level="TRACE">Arguments: [  ]</msg>
+<kw name="Connect To Mongo" owner="MongoKeywords">
+<msg time="2025-11-12T22:10:51.200250" level="TRACE">Arguments: [ 'mongodb+srv://peerapatworkformal_db_user:FW6gT5fhJnQ6fVRy@cubankcluster.846cpsh.mongodb.net/?appName=CUBankCluster' | 'test' ]</msg>
+<msg time="2025-11-12T22:10:51.450838" level="DEBUG">{"message": "Starting topology monitoring", "topologyId": {"$oid": "6914a37b44ae8c05eda60ee4"}}</msg>
+<msg time="2025-11-12T22:10:51.451060" level="DEBUG">{"message": "Topology description changed", "topologyId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "previousDescription": "&lt;TopologyDescription id: 6914a37b44ae8c05eda60ee4, topology_type: Unknown, servers: []&gt;", "newDescription": "&lt;TopologyDescription id: 6914a37b44ae8c05eda60ee4, topology_type: ReplicaSetNoPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;]&gt;"}</msg>
+<msg time="2025-11-12T22:10:51.451147" level="DEBUG">{"message": "Starting server monitoring", "topologyId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-00.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:51.451221" level="DEBUG">{"message": "Starting server monitoring", "topologyId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-02.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:51.451291" level="DEBUG">{"message": "Starting server monitoring", "topologyId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:51.451657" level="DEBUG">{"message": "Connection pool created", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-00.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:51.452640" level="DEBUG">{"message": "Connection pool created", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-02.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:51.453267" level="DEBUG">{"message": "Connection pool created", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:51.454052" level="TRACE">Return: Database(MongoClient(host=['ac-jepuadr-shard-00-00.846cpsh.mongodb.net:27017', 'ac-jepuadr-shard-00-02.846cpsh.mongodb.net:27017', 'ac-jepuadr-shard-00-01.846cpsh.mongodb.net:27017'], document_class=dict, tz_aware=False, connect=True, appname='CUBankCluster', authsource='admin', replicaset='atlas-xasb2q-shard-0', tls=True), 'test')</msg>
+<arg>${MONGO_URI}</arg>
+<arg>${DB_NAME}</arg>
+<doc>Connect to MongoDB and return a DB object</doc>
+<status status="PASS" start="2025-11-12T22:10:51.200035" elapsed="0.254162"/>
+</kw>
+<kw name="Delete Transactions By Account" owner="MongoKeywords">
+<msg time="2025-11-12T22:10:51.454552" level="TRACE">Arguments: [ 'users' | '6870194521' ]</msg>
+<msg time="2025-11-12T22:10:51.454829" level="DEBUG">{"message": "Server selection started", "selector": "&lt;function writable_server_selector at 0x0000024864EFA200&gt;", "operation": "update", "topologyDescription": "&lt;TopologyDescription id: 6914a37b44ae8c05eda60ee4, topology_type: ReplicaSetNoPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;]&gt;", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}}</msg>
+<msg time="2025-11-12T22:10:51.454964" level="DEBUG">{"message": "Waiting for suitable server to become available", "selector": "&lt;function writable_server_selector at 0x0000024864EFA200&gt;", "operation": "update", "topologyDescription": "&lt;TopologyDescription id: 6914a37b44ae8c05eda60ee4, topology_type: ReplicaSetNoPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;]&gt;", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "remainingTimeMS": 29999}</msg>
+<msg time="2025-11-12T22:10:51.712282" level="DEBUG">{"message": "Server selection succeeded", "selector": "&lt;function writable_server_selector at 0x0000024864EFA200&gt;", "operation": "update", "topologyDescription": "&lt;TopologyDescription id: 6914a37b44ae8c05eda60ee4, topology_type: ReplicaSetWithPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.03832500003045425&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;]&gt;", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:51.712564" level="DEBUG">{"message": "Connection checkout started", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:51.712743" level="DEBUG">{"message": "Connection created", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1}</msg>
+<msg time="2025-11-12T22:10:51.976972" level="DEBUG">{"message": "Connection ready", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.1329744000104256}</msg>
+<msg time="2025-11-12T22:10:51.977262" level="DEBUG">{"message": "Connection checked out", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.26469690003432333}</msg>
+<msg time="2025-11-12T22:10:51.977917" level="DEBUG">{"message": "Command started", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "command": "{\"update\": \"users\", \"ordered\": true, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"5RXL+flVRbmfPXpSJNU6pw==\", \"subType\": \"04\"}}}, \"txnNumber\": 1, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1762960242, \"i\": 1}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"GacJJMPYe3bHLGA3PWge2LmICcE=\", \"subType\": \"00\"}}, \"keyId\": 7522862276685070337}}, \"$db\": \"test\", \"updates\": [{\"q\": {\"accountId\": \"6870194521\"}}]}", "commandName": "update", "databaseName": "test", "requestId": 26500, "operationId": 26500, "driverConnectionId": 1, "serverConnectionId": 467938, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.020275" level="DEBUG">{"message": "Command succeeded", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "durationMS": 42.329, "reply": "{\"n\": 1, \"electionId\": {\"$oid\": \"7fffffff000000000000016f\"}, \"opTime\": {\"ts\": {\"$timestamp\": {\"t\": 1762960252, \"i\": 1}}, \"t\": 367}, \"nModified\": 1, \"ok\": 1.0, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1762960252, \"i\": 1}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"O4BayapvSWXKisFzdbS0UMUZKL8=\", \"subType\": \"00\"}}, \"keyId\": 7522862276685070337}}, \"operationTime\": {\"$timestamp\": {\"t\": 1762960252, \"i\": 1}}}", "commandName": "update", "databaseName": "test", "requestId": 26500, "operationId": 26500, "driverConnectionId": 1, "serverConnectionId": 467938, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.020559" level="DEBUG">{"message": "Connection checked in", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1}</msg>
+<msg time="2025-11-12T22:10:52.020742" level="TRACE">Return: 1</msg>
+<msg time="2025-11-12T22:10:52.020958" level="INFO">${deleted} = 1</msg>
+<var>${deleted}</var>
+<arg>${COLLECTION_NAME}</arg>
+<arg>${ACCOUNT_ID}</arg>
+<status status="PASS" start="2025-11-12T22:10:51.454384" elapsed="0.566630"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<msg time="2025-11-12T22:10:52.021628" level="TRACE">Arguments: [ 'Deleted documents count: 1' ]</msg>
+<msg time="2025-11-12T22:10:52.022152" level="TRACE">Return: None</msg>
+<arg>Deleted documents count: ${deleted}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-12T22:10:52.021367" elapsed="0.000967"/>
+</kw>
+<kw name="Disconnect Mongo" owner="MongoKeywords">
+<msg time="2025-11-12T22:10:52.022743" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-11-12T22:10:52.023155" level="DEBUG">{"message": "Server selection started", "selector": "PrimaryPreferred(tag_sets=None, max_staleness=-1, hedge=None)", "operation": "endSessions", "topologyDescription": "&lt;TopologyDescription id: 6914a37b44ae8c05eda60ee4, topology_type: ReplicaSetWithPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.03867460001492873&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.03832500003045425&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.038088200031779706&gt;]&gt;", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}}</msg>
+<msg time="2025-11-12T22:10:52.023482" level="DEBUG">{"message": "Server selection succeeded", "selector": "PrimaryPreferred(tag_sets=None, max_staleness=-1, hedge=None)", "operation": "endSessions", "topologyDescription": "&lt;TopologyDescription id: 6914a37b44ae8c05eda60ee4, topology_type: ReplicaSetWithPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.03867460001492873&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.03832500003045425&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.038088200031779706&gt;]&gt;", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.023943" level="DEBUG">{"message": "Connection checkout started", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.024136" level="DEBUG">{"message": "Connection checked out", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.00019869999960064888}</msg>
+<msg time="2025-11-12T22:10:52.024533" level="DEBUG">{"message": "Command started", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "command": "{\"endSessions\": [{\"id\": {\"$binary\": {\"base64\": \"5RXL+flVRbmfPXpSJNU6pw==\", \"subType\": \"04\"}}}], \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1762960252, \"i\": 1}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"O4BayapvSWXKisFzdbS0UMUZKL8=\", \"subType\": \"00\"}}, \"keyId\": 7522862276685070337}}, \"$db\": \"admin\", \"$readPreference\": {\"mode\": \"primaryPreferred\"}}", "commandName": "endSessions", "databaseName": "admin", "requestId": 19169, "operationId": 19169, "driverConnectionId": 1, "serverConnectionId": 467938, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.061548" level="DEBUG">{"message": "Command succeeded", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "durationMS": 36.909, "reply": "{\"ok\": 1.0, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1762960252, \"i\": 1}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"O4BayapvSWXKisFzdbS0UMUZKL8=\", \"subType\": \"00\"}}, \"keyId\": 7522862276685070337}}, \"operationTime\": {\"$timestamp\": {\"t\": 1762960252, \"i\": 1}}}", "commandName": "endSessions", "databaseName": "admin", "requestId": 19169, "operationId": 19169, "driverConnectionId": 1, "serverConnectionId": 467938, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.061843" level="DEBUG">{"message": "Connection checked in", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1}</msg>
+<msg time="2025-11-12T22:10:52.062089" level="DEBUG">{"message": "Stopped server monitoring", "topologyId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-00.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.062657" level="DEBUG">{"message": "Connection pool closed", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-00.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.062865" level="DEBUG">{"message": "Stopped server monitoring", "topologyId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-02.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.063290" level="DEBUG">{"message": "Connection pool closed", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-02.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.063450" level="DEBUG">{"message": "Stopped server monitoring", "topologyId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.064015" level="DEBUG">{"message": "Connection closed", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1, "reason": "Connection pool was closed", "error": "poolClosed"}</msg>
+<msg time="2025-11-12T22:10:52.064172" level="DEBUG">{"message": "Connection pool closed", "clientId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.064500" level="DEBUG">{"message": "Topology description changed", "topologyId": {"$oid": "6914a37b44ae8c05eda60ee4"}, "previousDescription": "&lt;TopologyDescription id: 6914a37b44ae8c05eda60ee4, topology_type: ReplicaSetWithPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.03867460001492873&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.03832500003045425&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.038088200031779706&gt;]&gt;", "newDescription": "&lt;TopologyDescription id: 6914a37b44ae8c05eda60ee4, topology_type: ReplicaSetNoPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;]&gt;"}</msg>
+<msg time="2025-11-12T22:10:52.064668" level="DEBUG">{"message": "Stopped topology monitoring", "topologyId": {"$oid": "6914a37b44ae8c05eda60ee4"}}</msg>
+<msg time="2025-11-12T22:10:52.064794" level="TRACE">Return: None</msg>
+<doc>Close the MongoDB connection</doc>
+<status status="PASS" start="2025-11-12T22:10:52.022616" elapsed="0.042274"/>
+</kw>
+<msg time="2025-11-12T22:10:52.065085" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-11-12T22:10:51.199468" elapsed="0.865697"/>
+</kw>
+<kw name="Update Balance By Amount" owner="mongoDatabaseKeywords">
+<msg time="2025-11-12T22:10:52.066517" level="TRACE">Arguments: [ ${amount}='1500' ]</msg>
+<kw name="Connect To Mongo" owner="MongoKeywords">
+<msg time="2025-11-12T22:10:52.067029" level="TRACE">Arguments: [ 'mongodb+srv://peerapatworkformal_db_user:FW6gT5fhJnQ6fVRy@cubankcluster.846cpsh.mongodb.net/?appName=CUBankCluster' | 'test' ]</msg>
+<msg time="2025-11-12T22:10:52.235247" level="DEBUG">{"message": "Starting topology monitoring", "topologyId": {"$oid": "6914a37c44ae8c05eda60ee5"}}</msg>
+<msg time="2025-11-12T22:10:52.235407" level="DEBUG">{"message": "Topology description changed", "topologyId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "previousDescription": "&lt;TopologyDescription id: 6914a37c44ae8c05eda60ee5, topology_type: Unknown, servers: []&gt;", "newDescription": "&lt;TopologyDescription id: 6914a37c44ae8c05eda60ee5, topology_type: ReplicaSetNoPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;]&gt;"}</msg>
+<msg time="2025-11-12T22:10:52.235485" level="DEBUG">{"message": "Starting server monitoring", "topologyId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-00.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.235553" level="DEBUG">{"message": "Starting server monitoring", "topologyId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-02.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.235616" level="DEBUG">{"message": "Starting server monitoring", "topologyId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.235917" level="DEBUG">{"message": "Connection pool created", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-00.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.236580" level="DEBUG">{"message": "Connection pool created", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-02.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.237198" level="DEBUG">{"message": "Connection pool created", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.238027" level="TRACE">Return: Database(MongoClient(host=['ac-jepuadr-shard-00-00.846cpsh.mongodb.net:27017', 'ac-jepuadr-shard-00-02.846cpsh.mongodb.net:27017', 'ac-jepuadr-shard-00-01.846cpsh.mongodb.net:27017'], document_class=dict, tz_aware=False, connect=True, appname='CUBankCluster', authsource='admin', replicaset='atlas-xasb2q-shard-0', tls=True), 'test')</msg>
+<arg>${MONGO_URI}</arg>
+<arg>${DB_NAME}</arg>
+<doc>Connect to MongoDB and return a DB object</doc>
+<status status="PASS" start="2025-11-12T22:10:52.066812" elapsed="0.171309"/>
+</kw>
+<kw name="Update Account Balance By Amount" owner="MongoKeywords">
+<msg time="2025-11-12T22:10:52.238454" level="TRACE">Arguments: [ 'users' | '6870194521' | '1500' ]</msg>
+<msg time="2025-11-12T22:10:52.238693" level="DEBUG">{"message": "Server selection started", "selector": "&lt;function writable_server_selector at 0x0000024864EFA200&gt;", "operation": "update", "topologyDescription": "&lt;TopologyDescription id: 6914a37c44ae8c05eda60ee5, topology_type: ReplicaSetNoPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;]&gt;", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}}</msg>
+<msg time="2025-11-12T22:10:52.238816" level="DEBUG">{"message": "Waiting for suitable server to become available", "selector": "&lt;function writable_server_selector at 0x0000024864EFA200&gt;", "operation": "update", "topologyDescription": "&lt;TopologyDescription id: 6914a37c44ae8c05eda60ee5, topology_type: ReplicaSetNoPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;]&gt;", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "remainingTimeMS": 29999}</msg>
+<msg time="2025-11-12T22:10:52.409040" level="DEBUG">{"message": "Server selection succeeded", "selector": "&lt;function writable_server_selector at 0x0000024864EFA200&gt;", "operation": "update", "topologyDescription": "&lt;TopologyDescription id: 6914a37c44ae8c05eda60ee5, topology_type: ReplicaSetWithPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.03887709998525679&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.03763969999272376&gt;]&gt;", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.409345" level="DEBUG">{"message": "Connection checkout started", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.409542" level="DEBUG">{"message": "Connection created", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1}</msg>
+<msg time="2025-11-12T22:10:52.690022" level="DEBUG">{"message": "Connection ready", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.13249839999480173}</msg>
+<msg time="2025-11-12T22:10:52.690302" level="DEBUG">{"message": "Connection checked out", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 0.28094600001350045}</msg>
+<msg time="2025-11-12T22:10:52.690843" level="DEBUG">{"message": "Command started", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "command": "{\"update\": \"users\", \"ordered\": true, \"lsid\": {\"id\": {\"$binary\": {\"base64\": \"Xx/XADXaRwa2oyB5pOPkSA==\", \"subType\": \"04\"}}}, \"txnNumber\": 1, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1762960252, \"i\": 1}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"O4BayapvSWXKisFzdbS0UMUZKL8=\", \"subType\": \"00\"}}, \"keyId\": 7522862276685070337}}, \"$db\": \"test\", \"updates\": [{\"q\": {\"accountId\": \"6870194521\"}, \"u\": {\"$set\": {\"balance\": \"1500\"}}}]}", "commandName": "update", "databaseName": "test", "requestId": 26962, "operationId": 26962, "driverConnectionId": 1, "serverConnectionId": 467428, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.735163" level="DEBUG">{"message": "Command succeeded", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "durationMS": 44.282000000000004, "reply": "{\"n\": 1, \"electionId\": {\"$oid\": \"7fffffff000000000000016f\"}, \"opTime\": {\"ts\": {\"$timestamp\": {\"t\": 1762960253, \"i\": 1}}, \"t\": 367}, \"nModified\": 1, \"ok\": 1.0, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1762960253, \"i\": 1}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"muN3GkQwOalVTZCps3i1I7vKyYk=\", \"subType\": \"00\"}}, \"keyId\": 7522862276685070337}}, \"operationTime\": {\"$timestamp\": {\"t\": 1762960253, \"i\": 1}}}", "commandName": "update", "databaseName": "test", "requestId": 26962, "operationId": 26962, "driverConnectionId": 1, "serverConnectionId": 467428, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.735435" level="DEBUG">{"message": "Connection checked in", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1}</msg>
+<msg time="2025-11-12T22:10:52.735615" level="TRACE">Return: 1</msg>
+<msg time="2025-11-12T22:10:52.735836" level="INFO">${updated} = 1</msg>
+<var>${updated}</var>
+<arg>${COLLECTION_NAME}</arg>
+<arg>${ACCOUNT_ID}</arg>
+<arg>${amount}</arg>
+<doc>Update balance to 0 for a given accountId</doc>
+<status status="PASS" start="2025-11-12T22:10:52.238290" elapsed="0.497616"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<msg time="2025-11-12T22:10:52.736278" level="TRACE">Arguments: [ 'Balance updated for 6870194521, modified: 1' ]</msg>
+<msg time="2025-11-12T22:10:52.736539" level="TRACE">Return: None</msg>
+<arg>Balance updated for ${ACCOUNT_ID}, modified: ${updated}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-12T22:10:52.736122" elapsed="0.000550"/>
+</kw>
+<kw name="Disconnect Mongo" owner="MongoKeywords">
+<msg time="2025-11-12T22:10:52.737010" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-11-12T22:10:52.737322" level="DEBUG">{"message": "Server selection started", "selector": "PrimaryPreferred(tag_sets=None, max_staleness=-1, hedge=None)", "operation": "endSessions", "topologyDescription": "&lt;TopologyDescription id: 6914a37c44ae8c05eda60ee5, topology_type: ReplicaSetWithPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.03876129997661337&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.03887709998525679&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.03763969999272376&gt;]&gt;", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}}</msg>
+<msg time="2025-11-12T22:10:52.737466" level="DEBUG">{"message": "Server selection succeeded", "selector": "PrimaryPreferred(tag_sets=None, max_staleness=-1, hedge=None)", "operation": "endSessions", "topologyDescription": "&lt;TopologyDescription id: 6914a37c44ae8c05eda60ee5, topology_type: ReplicaSetWithPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.03876129997661337&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.03887709998525679&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.03763969999272376&gt;]&gt;", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.737630" level="DEBUG">{"message": "Connection checkout started", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.737717" level="DEBUG">{"message": "Connection checked out", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1, "durationMS": 8.60999571159482e-05}</msg>
+<msg time="2025-11-12T22:10:52.737892" level="DEBUG">{"message": "Command started", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "command": "{\"endSessions\": [{\"id\": {\"$binary\": {\"base64\": \"Xx/XADXaRwa2oyB5pOPkSA==\", \"subType\": \"04\"}}}], \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1762960253, \"i\": 1}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"muN3GkQwOalVTZCps3i1I7vKyYk=\", \"subType\": \"00\"}}, \"keyId\": 7522862276685070337}}, \"$db\": \"admin\", \"$readPreference\": {\"mode\": \"primaryPreferred\"}}", "commandName": "endSessions", "databaseName": "admin", "requestId": 24464, "operationId": 24464, "driverConnectionId": 1, "serverConnectionId": 467428, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.777281" level="DEBUG">{"message": "Command succeeded", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "durationMS": 39.374, "reply": "{\"ok\": 1.0, \"$clusterTime\": {\"clusterTime\": {\"$timestamp\": {\"t\": 1762960253, \"i\": 1}}, \"signature\": {\"hash\": {\"$binary\": {\"base64\": \"muN3GkQwOalVTZCps3i1I7vKyYk=\", \"subType\": \"00\"}}, \"keyId\": 7522862276685070337}}, \"operationTime\": {\"$timestamp\": {\"t\": 1762960253, \"i\": 1}}}", "commandName": "endSessions", "databaseName": "admin", "requestId": 24464, "operationId": 24464, "driverConnectionId": 1, "serverConnectionId": 467428, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.777385" level="DEBUG">{"message": "Connection checked in", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1}</msg>
+<msg time="2025-11-12T22:10:52.777456" level="DEBUG">{"message": "Stopped server monitoring", "topologyId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-00.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.777652" level="DEBUG">{"message": "Connection pool closed", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-00.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.777694" level="DEBUG">{"message": "Stopped server monitoring", "topologyId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-02.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.777801" level="DEBUG">{"message": "Connection pool closed", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-02.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.777837" level="DEBUG">{"message": "Stopped server monitoring", "topologyId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.777981" level="DEBUG">{"message": "Connection closed", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017, "driverConnectionId": 1, "reason": "Connection pool was closed", "error": "poolClosed"}</msg>
+<msg time="2025-11-12T22:10:52.778020" level="DEBUG">{"message": "Connection pool closed", "clientId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "serverHost": "ac-jepuadr-shard-00-01.846cpsh.mongodb.net", "serverPort": 27017}</msg>
+<msg time="2025-11-12T22:10:52.778116" level="DEBUG">{"message": "Topology description changed", "topologyId": {"$oid": "6914a37c44ae8c05eda60ee5"}, "previousDescription": "&lt;TopologyDescription id: 6914a37c44ae8c05eda60ee5, topology_type: ReplicaSetWithPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.03876129997661337&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.03887709998525679&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.03763969999272376&gt;]&gt;", "newDescription": "&lt;TopologyDescription id: 6914a37c44ae8c05eda60ee5, topology_type: ReplicaSetNoPrimary, servers: [&lt;ServerDescription ('ac-jepuadr-shard-00-00.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-01.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;, &lt;ServerDescription ('ac-jepuadr-shard-00-02.846cpsh.mongodb.net', 27017) server_type: Unknown, rtt: None&gt;]&gt;"}</msg>
+<msg time="2025-11-12T22:10:52.778157" level="DEBUG">{"message": "Stopped topology monitoring", "topologyId": {"$oid": "6914a37c44ae8c05eda60ee5"}}</msg>
+<msg time="2025-11-12T22:10:52.778188" level="TRACE">Return: None</msg>
+<doc>Close the MongoDB connection</doc>
+<status status="PASS" start="2025-11-12T22:10:52.736906" elapsed="0.041309"/>
+</kw>
+<msg time="2025-11-12T22:10:52.778271" level="TRACE">Return: None</msg>
+<arg>${BALANCE_BASE}</arg>
+<status status="PASS" start="2025-11-12T22:10:52.066053" elapsed="0.712236"/>
+</kw>
+<kw name="Go To Account">
+<msg time="2025-11-12T22:10:52.778893" level="TRACE">Arguments: [  ]</msg>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:52.779120" level="TRACE">Arguments: [ 'http://localhost:3000/account' ]</msg>
+<msg time="2025-11-12T22:10:52.779204" level="INFO">Opening url 'http://localhost:3000/account'</msg>
+<msg time="2025-11-12T22:10:52.779318" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/url {'url': 'http://localhost:3000/account'}</msg>
+<msg time="2025-11-12T22:10:52.810336" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/url HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:52.810598" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:52.810761" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:52.810884" level="TRACE">Return: None</msg>
+<arg>${BASE_URL}/account</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-12T22:10:52.779024" elapsed="0.031956"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:52.811510" level="TRACE">Arguments: [ 'Account ID:' ]</msg>
+<msg time="2025-11-12T22:10:52.811863" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': "//*[contains(., 'Account ID:')]"}</msg>
+<msg time="2025-11-12T22:10:52.818273" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:52.818421" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.50"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.51"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.52"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.53"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.54"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.55"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.56"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.57"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.58"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.59"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.60"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.61"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.62"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.63"}]} | headers=HTTPHeaderDict({'Content-Length': '1649', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:52.818654" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:52.818763" level="TRACE">Return: None</msg>
+<arg>Account ID:</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-12T22:10:52.811320" elapsed="0.007509"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:52.819181" level="TRACE">Arguments: [ 'Balance:' ]</msg>
+<msg time="2025-11-12T22:10:52.819312" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/frame {'id': None}</msg>
+<msg time="2025-11-12T22:10:52.820603" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/frame HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:52.820685" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:52.820748" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:52.820855" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': "//*[contains(., 'Balance:')]"}</msg>
+<msg time="2025-11-12T22:10:52.828669" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:52.828774" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.50"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.51"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.52"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.53"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.54"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.55"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.56"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.57"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.4DE43F96D9BAF16E84AEE52D68A0EBE3.e.64"}]} | headers=HTTPHeaderDict({'Content-Length': '1064', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:52.828849" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:52.828901" level="INFO">Current page contains text 'Balance:'.</msg>
+<msg time="2025-11-12T22:10:52.828941" level="TRACE">Return: None</msg>
+<arg>Balance:</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-11-12T22:10:52.819054" elapsed="0.009928"/>
+</kw>
+<msg time="2025-11-12T22:10:52.829058" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-11-12T22:10:52.778698" elapsed="0.050393"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:52.829644" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-11-12T22:10:52.829772" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/refresh {}</msg>
+<msg time="2025-11-12T22:10:52.860582" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/refresh HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:52.860710" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:52.860776" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:52.860836" level="TRACE">Return: None</msg>
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2025-11-12T22:10:52.829570" elapsed="0.031308"/>
+</kw>
+<kw name="Get Balance">
+<msg time="2025-11-12T22:10:52.861388" level="TRACE">Arguments: [  ]</msg>
+<kw name="Wait For Balance Number">
+<msg time="2025-11-12T22:10:52.861593" level="TRACE">Arguments: [  ]</msg>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<msg time="2025-11-12T22:10:52.861787" level="TRACE">Arguments: [ '10x' | '1s' | 'Balance Element Should Contain Digits' ]</msg>
+<kw name="Balance Element Should Contain Digits">
+<msg time="2025-11-12T22:10:52.862099" level="TRACE">Arguments: [  ]</msg>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:52.862322" level="TRACE">Arguments: [ 'xpath=(//h2[normalize-space()="Balance:"]/following-sibling::h1)[1]' ]</msg>
+<msg time="2025-11-12T22:10:52.862481" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '(//h2[normalize-space()="Balance:"]/following-sibling::h1)[1]'}</msg>
+<msg time="2025-11-12T22:10:52.874260" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:52.874394" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.EA56F196E815D4EC4663A9876EDADC18.e.67"}]} | headers=HTTPHeaderDict({'Content-Length': '128', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:52.874459" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:52.874559" level="DEBUG">GET http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.EA56F196E815D4EC4663A9876EDADC18.e.67/text {}</msg>
+<msg time="2025-11-12T22:10:52.882694" level="DEBUG">http://localhost:61151 "GET /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.EA56F196E815D4EC4663A9876EDADC18.e.67/text HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:52.882851" level="DEBUG">Remote response: status=200 | data={"value":""} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:52.882923" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:52.882983" level="TRACE">Return: ''</msg>
+<msg time="2025-11-12T22:10:52.883078" level="INFO">${txt} = </msg>
+<var>${txt}</var>
+<arg>xpath=(//h2[normalize-space()="Balance:"]/following-sibling::h1)[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T22:10:52.862187" elapsed="0.020915"/>
+</kw>
+<kw name="Should Match Regexp" owner="BuiltIn">
+<msg time="2025-11-12T22:10:52.883412" level="TRACE">Arguments: [ '' | '^-?\\d+$' ]</msg>
+<msg time="2025-11-12T22:10:52.883646" level="FAIL">'' does not match '^-?\d+$'</msg>
+<msg time="2025-11-12T22:10:52.883777" level="DEBUG">Traceback (most recent call last):
+  None
+AssertionError: '' does not match '^-?\d+$'</msg>
+<arg>${txt}</arg>
+<arg>^-?\\d+$</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="FAIL" start="2025-11-12T22:10:52.883275" elapsed="0.000532">'' does not match '^-?\d+$'</status>
+</kw>
+<status status="FAIL" start="2025-11-12T22:10:52.861993" elapsed="0.021947">'' does not match '^-?\d+$'</status>
+</kw>
+<kw name="Balance Element Should Contain Digits">
+<msg time="2025-11-12T22:10:53.885461" level="TRACE">Arguments: [  ]</msg>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:53.886373" level="TRACE">Arguments: [ 'xpath=(//h2[normalize-space()="Balance:"]/following-sibling::h1)[1]' ]</msg>
+<msg time="2025-11-12T22:10:53.886777" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '(//h2[normalize-space()="Balance:"]/following-sibling::h1)[1]'}</msg>
+<msg time="2025-11-12T22:10:53.897878" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:53.898073" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.EA56F196E815D4EC4663A9876EDADC18.e.67"}]} | headers=HTTPHeaderDict({'Content-Length': '128', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:53.898203" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:53.898377" level="DEBUG">GET http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.EA56F196E815D4EC4663A9876EDADC18.e.67/text {}</msg>
+<msg time="2025-11-12T22:10:53.909729" level="DEBUG">http://localhost:61151 "GET /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.EA56F196E815D4EC4663A9876EDADC18.e.67/text HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:53.909929" level="DEBUG">Remote response: status=200 | data={"value":"1500"} | headers=HTTPHeaderDict({'Content-Length': '16', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:53.910062" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:53.910164" level="TRACE">Return: '1500'</msg>
+<msg time="2025-11-12T22:10:53.910323" level="INFO">${txt} = 1500</msg>
+<var>${txt}</var>
+<arg>xpath=(//h2[normalize-space()="Balance:"]/following-sibling::h1)[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T22:10:53.885963" elapsed="0.024412"/>
+</kw>
+<kw name="Should Match Regexp" owner="BuiltIn">
+<msg time="2025-11-12T22:10:53.910897" level="TRACE">Arguments: [ '1500' | '^-?\\d+$' ]</msg>
+<msg time="2025-11-12T22:10:53.911062" level="TRACE">Return: '1500'</msg>
+<arg>${txt}</arg>
+<arg>^-?\\d+$</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2025-11-12T22:10:53.910659" elapsed="0.000476"/>
+</kw>
+<msg time="2025-11-12T22:10:53.911267" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-11-12T22:10:53.885080" elapsed="0.026256"/>
+</kw>
+<msg time="2025-11-12T22:10:53.911425" level="TRACE">Return: None</msg>
+<arg>10x</arg>
+<arg>1s</arg>
+<arg>Balance Element Should Contain Digits</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-11-12T22:10:52.861726" elapsed="1.049763"/>
+</kw>
+<msg time="2025-11-12T22:10:53.911601" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-11-12T22:10:52.861490" elapsed="1.050173"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:53.912081" level="TRACE">Arguments: [ 'xpath=(//h2[normalize-space()="Balance:"]/following-sibling::h1)[1]' ]</msg>
+<msg time="2025-11-12T22:10:53.912331" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '(//h2[normalize-space()="Balance:"]/following-sibling::h1)[1]'}</msg>
+<msg time="2025-11-12T22:10:53.920273" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:53.920415" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.EA56F196E815D4EC4663A9876EDADC18.e.67"}]} | headers=HTTPHeaderDict({'Content-Length': '128', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:53.920498" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:53.920610" level="DEBUG">GET http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.EA56F196E815D4EC4663A9876EDADC18.e.67/text {}</msg>
+<msg time="2025-11-12T22:10:53.929560" level="DEBUG">http://localhost:61151 "GET /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.EA56F196E815D4EC4663A9876EDADC18.e.67/text HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:53.929736" level="DEBUG">Remote response: status=200 | data={"value":"1500"} | headers=HTTPHeaderDict({'Content-Length': '16', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:53.929854" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:53.929944" level="TRACE">Return: '1500'</msg>
+<msg time="2025-11-12T22:10:53.930086" level="INFO">${bal_text} = 1500</msg>
+<var>${bal_text}</var>
+<arg>xpath=(//h2[normalize-space()="Balance:"]/following-sibling::h1)[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T22:10:53.911867" elapsed="0.018266"/>
+</kw>
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2025-11-12T22:10:53.930579" level="TRACE">Arguments: [ '1500' ]</msg>
+<msg time="2025-11-12T22:10:53.930693" level="DEBUG">Argument types are:
+&lt;class 'str'&gt;</msg>
+<msg time="2025-11-12T22:10:53.930766" level="TRACE">Return: 1500</msg>
+<msg time="2025-11-12T22:10:53.930868" level="INFO">${bal} = 1500</msg>
+<var>${bal}</var>
+<arg>${bal_text}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2025-11-12T22:10:53.930391" elapsed="0.000519"/>
+</kw>
+<return>
+<value>${bal}</value>
+<status status="PASS" start="2025-11-12T22:10:53.931047" elapsed="0.000104"/>
+</return>
+<msg time="2025-11-12T22:10:53.931335" level="TRACE">Return: 1500</msg>
+<msg time="2025-11-12T22:10:53.931441" level="INFO">${before} = 1500</msg>
+<var>${before}</var>
+<status status="PASS" start="2025-11-12T22:10:52.861222" elapsed="1.070263"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-11-12T22:10:53.932225" level="TRACE">Arguments: [ 1500 | '1500' ]</msg>
+<msg time="2025-11-12T22:10:53.932363" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2025-11-12T22:10:53.932447" level="TRACE">Return: None</msg>
+<arg>${before}</arg>
+<arg>${BALANCE_BASE}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-11-12T22:10:53.931994" elapsed="0.000516"/>
+</kw>
+<kw name="Submit Withdraw">
+<msg time="2025-11-12T22:10:53.933518" level="TRACE">Arguments: [ ${amount}='200' ]</msg>
+<kw name="Go To Withdraw">
+<msg time="2025-11-12T22:10:53.933990" level="TRACE">Arguments: [  ]</msg>
+<kw name="Go To Account">
+<msg time="2025-11-12T22:10:53.934361" level="TRACE">Arguments: [  ]</msg>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:53.935754" level="TRACE">Arguments: [ 'http://localhost:3000/account' ]</msg>
+<msg time="2025-11-12T22:10:53.935917" level="INFO">Opening url 'http://localhost:3000/account'</msg>
+<msg time="2025-11-12T22:10:53.936094" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/url {'url': 'http://localhost:3000/account'}</msg>
+<msg time="2025-11-12T22:10:53.965744" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/url HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:53.965889" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:53.965960" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:53.966021" level="TRACE">Return: None</msg>
+<arg>${BASE_URL}/account</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-11-12T22:10:53.934547" elapsed="0.031520"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:53.966358" level="TRACE">Arguments: [ 'Account ID:' ]</msg>
+<msg time="2025-11-12T22:10:53.966516" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': "//*[contains(., 'Account ID:')]"}</msg>
+<msg time="2025-11-12T22:10:53.974021" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:53.974241" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.89"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.90"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.91"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.92"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.93"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.94"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.95"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.96"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.97"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.98"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.99"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.100"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.101"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.102"}]} | headers=HTTPHeaderDict({'Content-Length': '1652', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:53.974391" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:53.974516" level="TRACE">Return: None</msg>
+<arg>Account ID:</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-12T22:10:53.966252" elapsed="0.008345"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:53.975008" level="TRACE">Arguments: [ 'Balance:' ]</msg>
+<msg time="2025-11-12T22:10:53.975212" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/frame {'id': None}</msg>
+<msg time="2025-11-12T22:10:53.977555" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/frame HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:53.977727" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:53.977873" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:53.978089" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': "//*[contains(., 'Balance:')]"}</msg>
+<msg time="2025-11-12T22:10:53.986552" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:53.986789" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.89"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.90"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.91"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.92"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.93"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.94"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.95"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.96"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.103"}]} | headers=HTTPHeaderDict({'Content-Length': '1065', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:53.986961" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:53.987094" level="INFO">Current page contains text 'Balance:'.</msg>
+<msg time="2025-11-12T22:10:53.987178" level="TRACE">Return: None</msg>
+<arg>Balance:</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-11-12T22:10:53.974855" elapsed="0.012408"/>
+</kw>
+<msg time="2025-11-12T22:10:53.987430" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-11-12T22:10:53.934179" elapsed="0.053331"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:53.988136" level="TRACE">Arguments: [ 'xpath=//h2[normalize-space()="Withdraw"]' | datetime.timedelta(seconds=15) ]</msg>
+<msg time="2025-11-12T22:10:53.988480" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '//h2[normalize-space()="Withdraw"]'}</msg>
+<msg time="2025-11-12T22:10:53.999470" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:53.999576" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.104"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:53.999681" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:53.999793" level="TRACE">Return: None</msg>
+<arg>xpath=//h2[normalize-space()="Withdraw"]</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-12T22:10:53.987776" elapsed="0.012103"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:54.000271" level="TRACE">Arguments: [ 'xpath=//h2[normalize-space()="Withdraw"]' ]</msg>
+<msg time="2025-11-12T22:10:54.000444" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '//h2[normalize-space()="Withdraw"]'}</msg>
+<msg time="2025-11-12T22:10:54.009017" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:54.009228" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.104"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:54.009365" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:54.009789" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/actions {'actions': [{'type': 'pointer', 'parameters': {'pointerType': 'mouse'}, 'id': 'mouse', 'actions': [{'type': 'pointerMove', 'duration': 250, 'x': 0, 'y': 0, 'origin': {'element-6066-11e4-a52e-4f735466cecf': 'f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.104'}}]}, {'type': 'key', 'id': 'key', 'actions': [{'type': 'pause', 'duration': 0}]}]}</msg>
+<msg time="2025-11-12T22:10:54.279681" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/actions HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:54.279944" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:54.280096" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:54.280227" level="TRACE">Return: None</msg>
+<arg>xpath=//h2[normalize-space()="Withdraw"]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-11-12T22:10:54.000135" elapsed="0.280190"/>
+</kw>
+<msg time="2025-11-12T22:10:54.280495" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-11-12T22:10:53.933788" elapsed="0.346784"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:54.281307" level="TRACE">Arguments: [ 'xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]' | datetime.timedelta(seconds=10) ]</msg>
+<msg time="2025-11-12T22:10:54.281647" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]'}</msg>
+<msg time="2025-11-12T22:10:54.295373" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:54.295526" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.111"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:54.295608" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:54.295680" level="TRACE">Return: None</msg>
+<arg>xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-12T22:10:54.280891" elapsed="0.014834"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:54.296081" level="TRACE">Arguments: [ 'xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]' ]</msg>
+<msg time="2025-11-12T22:10:54.296319" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]'}</msg>
+<msg time="2025-11-12T22:10:54.303742" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:54.303952" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.111"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:54.304074" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:54.304231" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.111/clear {}</msg>
+<msg time="2025-11-12T22:10:54.333755" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.111/clear HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:54.333912" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:54.333981" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:54.334058" level="TRACE">Return: None</msg>
+<arg>xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T22:10:54.295907" elapsed="0.038197"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:54.334472" level="TRACE">Arguments: [ 'xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]' | '200' ]</msg>
+<msg time="2025-11-12T22:10:54.334542" level="INFO">Typing text '200' into text field 'xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]'.</msg>
+<msg time="2025-11-12T22:10:54.334645" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]'}</msg>
+<msg time="2025-11-12T22:10:54.345448" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:54.345656" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.111"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:54.345806" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:54.346014" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.111/clear {}</msg>
+<msg time="2025-11-12T22:10:54.370721" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.111/clear HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:54.370834" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:54.370896" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:54.371009" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.111/value {'text': '200', 'value': ['2', '0', '0']}</msg>
+<msg time="2025-11-12T22:10:54.411952" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.111/value HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:54.412125" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:54.412208" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:54.412277" level="TRACE">Return: None</msg>
+<arg>xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]</arg>
+<arg>${amount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T22:10:54.334273" elapsed="0.078058"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:54.412695" level="TRACE">Arguments: [ 'css:[cid="wc"]' ]</msg>
+<msg time="2025-11-12T22:10:54.412875" level="INFO">Clicking button 'css:[cid="wc"]'.</msg>
+<msg time="2025-11-12T22:10:54.413018" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'css selector', 'value': '[cid="wc"]'}</msg>
+<msg time="2025-11-12T22:10:54.420432" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:54.420620" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.121"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:54.420813" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:54.420973" level="DEBUG">GET http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.121/name {}</msg>
+<msg time="2025-11-12T22:10:54.427045" level="DEBUG">http://localhost:61151 "GET /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.121/name HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:54.427343" level="DEBUG">Remote response: status=200 | data={"value":"button"} | headers=HTTPHeaderDict({'Content-Length': '18', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:54.427480" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:54.427702" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'css selector', 'value': '[cid="wc"]'}</msg>
+<msg time="2025-11-12T22:10:54.435816" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:54.435996" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.121"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:54.436117" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:54.436282" level="DEBUG">GET http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.121/name {}</msg>
+<msg time="2025-11-12T22:10:54.443281" level="DEBUG">http://localhost:61151 "GET /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.121/name HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:54.443487" level="DEBUG">Remote response: status=200 | data={"value":"button"} | headers=HTTPHeaderDict({'Content-Length': '18', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:54.443615" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:54.443790" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.121/click {}</msg>
+<msg time="2025-11-12T22:10:54.500823" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.D0160366237626C0DD344FCEAAE62D9F.e.121/click HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:54.500955" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:54.501021" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:54.501075" level="TRACE">Return: None</msg>
+<arg>css:[cid="wc"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T22:10:54.412513" elapsed="0.088606"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-07T00:18:26.642811" level="INFO">Slept 5 seconds.</msg>
-<arg>5</arg>
+<msg time="2025-11-12T22:10:54.501370" level="TRACE">Arguments: [ '500ms' ]</msg>
+<msg time="2025-11-12T22:10:55.001865" level="INFO">Slept 500 milliseconds.</msg>
+<msg time="2025-11-12T22:10:55.002047" level="TRACE">Return: None</msg>
+<arg>500ms</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-07T00:18:21.640812" elapsed="5.002418"/>
+<status status="PASS" start="2025-11-12T22:10:54.501281" elapsed="0.500867"/>
 </kw>
-<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-11-07T00:18:26.645492" elapsed="0.089348"/>
+<msg time="2025-11-12T22:10:55.002377" level="TRACE">Return: None</msg>
+<arg>${WITHDRAW_OK}</arg>
+<status status="PASS" start="2025-11-12T22:10:53.933161" elapsed="1.069296"/>
 </kw>
-<tag>All Input</tag>
-<status status="PASS" start="2025-11-07T00:18:13.460271" elapsed="13.274700"/>
+<kw name="Validate Success">
+<msg time="2025-11-12T22:10:55.003562" level="TRACE">Arguments: [  ]</msg>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:55.004122" level="TRACE">Arguments: [ 'Confirm' | timeout=datetime.timedelta(seconds=5) ]</msg>
+<msg time="2025-11-12T22:10:55.004511" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': "//*[contains(., 'Confirm')]"}</msg>
+<msg time="2025-11-12T22:10:55.020921" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:55.021048" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.143"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.144"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.145"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.146"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.147"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.148"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.126"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.149"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.122"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.150"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.127"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.151"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.137"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.152"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.128"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.153"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.138"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.154"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.129"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.155"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.139"},{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.92438ACEBF20F049D3441D186E1D55EF.e.156"}]} | headers=HTTPHeaderDict({'Content-Length': '2607', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:55.021133" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:55.021211" level="TRACE">Return: None</msg>
+<arg>Confirm</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-12T22:10:55.003821" elapsed="0.017432"/>
+</kw>
+<msg time="2025-11-12T22:10:55.021336" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-11-12T22:10:55.003171" elapsed="0.018248"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-12T22:10:55.021844" level="TRACE">Arguments: [ '2s' ]</msg>
+<msg time="2025-11-12T22:10:57.022709" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-11-12T22:10:57.022921" level="TRACE">Return: None</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-12T22:10:55.021763" elapsed="2.001266"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:57.024386" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-11-12T22:10:57.024666" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/refresh {}</msg>
+<msg time="2025-11-12T22:10:57.041087" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/refresh HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:57.041328" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:57.041468" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:57.041591" level="TRACE">Return: None</msg>
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2025-11-12T22:10:57.024240" elapsed="0.017440"/>
+</kw>
+<kw name="Verify Balance On Title" owner="cubankCommonKeywords">
+<msg time="2025-11-12T22:10:57.042617" level="TRACE">Arguments: [ ${balance}='1300' ]</msg>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:57.042885" level="TRACE">Arguments: [ '//*[@id="root"]/div/div/div/div[2]/article/h1[3]' ]</msg>
+<msg time="2025-11-12T22:10:57.043050" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '//*[@id="root"]/div/div/div/div[2]/article/h1[3]'}</msg>
+<msg time="2025-11-12T22:10:57.065068" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:57.065207" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.161"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:57.065273" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:57.065890" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/execute/sync {'script': '/* isDisplayed */return (function(){return (function(){var g=this||self;\nfunction aa(a){var b=typeof...', 'args': [{'element-6066-11e4-a52e-4f735466cecf': 'f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.161'}]}</msg>
+<msg time="2025-11-12T22:10:57.072457" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/execute/sync HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:57.072586" level="DEBUG">Remote response: status=200 | data={"value":false} | headers=HTTPHeaderDict({'Content-Length': '15', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:57.072649" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:57.273251" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '//*[@id="root"]/div/div/div/div[2]/article/h1[3]'}</msg>
+<msg time="2025-11-12T22:10:57.283931" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:57.284135" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.161"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:57.284262" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:57.284571" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/execute/sync {'script': '/* isDisplayed */return (function(){return (function(){var g=this||self;\nfunction aa(a){var b=typeof...', 'args': [{'element-6066-11e4-a52e-4f735466cecf': 'f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.161'}]}</msg>
+<msg time="2025-11-12T22:10:57.296140" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/execute/sync HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:57.296356" level="DEBUG">Remote response: status=200 | data={"value":true} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:57.296482" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:57.296587" level="TRACE">Return: None</msg>
+<arg>//*[@id="root"]/div/div/div/div[2]/article/h1[3]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-12T22:10:57.042755" elapsed="0.253910"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:10:57.297259" level="TRACE">Arguments: [ '//*[@id="root"]/div/div/div/div[2]/article/h1[3]' | '1300' ]</msg>
+<msg time="2025-11-12T22:10:57.297559" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '//*[@id="root"]/div/div/div/div[2]/article/h1[3]'}</msg>
+<msg time="2025-11-12T22:10:57.304847" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:57.304974" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.161"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:57.305037" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:57.305129" level="DEBUG">GET http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.161/text {}</msg>
+<msg time="2025-11-12T22:10:57.313583" level="DEBUG">http://localhost:61151 "GET /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.161/text HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:10:57.313768" level="DEBUG">Remote response: status=200 | data={"value":"1300"} | headers=HTTPHeaderDict({'Content-Length': '16', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:10:57.313892" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:10:57.314017" level="TRACE">Return: None</msg>
+<arg>//*[@id="root"]/div/div/div/div[2]/article/h1[3]</arg>
+<arg>${balance}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-11-12T22:10:57.296937" elapsed="0.017127"/>
+</kw>
+<msg time="2025-11-12T22:10:57.314160" level="TRACE">Return: None</msg>
+<arg>1300</arg>
+<status status="PASS" start="2025-11-12T22:10:57.042344" elapsed="0.271850"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-12T22:10:57.314663" level="TRACE">Arguments: [ '200s' ]</msg>
+<msg time="2025-11-12T22:14:17.315235" level="INFO">Slept 3 minutes 20 seconds.</msg>
+<msg time="2025-11-12T22:14:17.315354" level="TRACE">Return: None</msg>
+<arg>200s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-12T22:10:57.314564" elapsed="200.000841"/>
+</kw>
+<kw name="Verify History transaction should correct_windows">
+<msg time="2025-11-12T22:14:17.317061" level="TRACE">Arguments: [ ${expected_data}=[{'type': 'withdraw', 'amount': 200, 'balance': 1300}] ]</msg>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-12T22:14:17.317767" level="TRACE">Arguments: [ '1' ]</msg>
+<msg time="2025-11-12T22:14:17.317908" level="TRACE">Return: '1'</msg>
+<msg time="2025-11-12T22:14:17.318044" level="INFO">${index} = 1</msg>
+<var>${index}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-12T22:14:17.317618" elapsed="0.000482"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:14:17.319312" level="TRACE">Arguments: [ 'xpath=//div[@class="history-list"]/div[@class="account-form"]/div[1]' ]</msg>
+<msg time="2025-11-12T22:14:17.319675" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '//div[@class="history-list"]/div[@class="account-form"]/div[1]'}</msg>
+<msg time="2025-11-12T22:14:17.331299" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:14:17.331521" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.212"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:14:17.331650" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:14:17.331931" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/execute/sync {'script': '/* isDisplayed */return (function(){return (function(){var g=this||self;\nfunction aa(a){var b=typeof...', 'args': [{'element-6066-11e4-a52e-4f735466cecf': 'f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.212'}]}</msg>
+<msg time="2025-11-12T22:14:17.338740" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/execute/sync HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:14:17.338957" level="DEBUG">Remote response: status=200 | data={"value":true} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:14:17.339092" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:14:17.339204" level="TRACE">Return: None</msg>
+<arg>xpath=//div[@class="history-list"]/div[@class="account-form"]/div[${index}]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-12T22:14:17.318978" elapsed="0.020321"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:14:17.340046" level="TRACE">Arguments: [ 'xpath=//div[@class="history-list"]/div[@class="account-form"]/div[1]' ]</msg>
+<msg time="2025-11-12T22:14:17.340377" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '//div[@class="history-list"]/div[@class="account-form"]/div[1]'}</msg>
+<msg time="2025-11-12T22:14:17.348841" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:14:17.349016" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.212"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:14:17.349139" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:14:17.349419" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/execute/sync {'script': '/* isDisplayed */return (function(){return (function(){var g=this||self;\nfunction aa(a){var b=typeof...', 'args': [{'element-6066-11e4-a52e-4f735466cecf': 'f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.212'}]}</msg>
+<msg time="2025-11-12T22:14:17.362574" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/execute/sync HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:14:17.362802" level="DEBUG">Remote response: status=200 | data={"value":true} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:14:17.362942" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:14:17.363254" level="TRACE">Return: None</msg>
+<arg>xpath=//div[@class="history-list"]/div[@class="account-form"]/div[${index}]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-12T22:14:17.339654" elapsed="0.023695"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:14:17.364052" level="TRACE">Arguments: [ 'xpath=(//div[@class="history-list"]/div[@class="account-form"]/div/div[@class="Card_card__Q7ZOF"]/div)[1]/h2[1]' ]</msg>
+<msg time="2025-11-12T22:14:17.364330" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '(//div[@class="history-list"]/div[@class="account-form"]/div/div[@class="Card_card__Q7ZOF"]/div)[1]/...'}</msg>
+<msg time="2025-11-12T22:14:17.382386" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:14:17.382563" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.222"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:14:17.382684" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:14:17.382857" level="DEBUG">GET http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.222/text {}</msg>
+<msg time="2025-11-12T22:14:17.395728" level="DEBUG">http://localhost:61151 "GET /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.222/text HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:14:17.395900" level="DEBUG">Remote response: status=200 | data={"value":"withdraw"} | headers=HTTPHeaderDict({'Content-Length': '20', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:14:17.396016" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:14:17.396107" level="TRACE">Return: 'withdraw'</msg>
+<msg time="2025-11-12T22:14:17.396261" level="INFO">${actual_type} = withdraw</msg>
+<var>${actual_type}</var>
+<arg>xpath=(//div[@class="history-list"]/div[@class="account-form"]/div/div[@class="Card_card__Q7ZOF"]/div)[${index}]/h2[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T22:14:17.363648" elapsed="0.032659"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:14:17.396869" level="TRACE">Arguments: [ 'xpath=(//div[@class="history-list"]/div[@class="account-form"]/div/div[@class="Card_card__Q7ZOF"]/div)[1]/p[3]' ]</msg>
+<msg time="2025-11-12T22:14:17.397093" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '(//div[@class="history-list"]/div[@class="account-form"]/div/div[@class="Card_card__Q7ZOF"]/div)[1]/...'}</msg>
+<msg time="2025-11-12T22:14:17.413827" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:14:17.414009" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.217"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:14:17.414246" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:14:17.414418" level="DEBUG">GET http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.217/text {}</msg>
+<msg time="2025-11-12T22:14:17.427456" level="DEBUG">http://localhost:61151 "GET /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.217/text HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:14:17.427622" level="DEBUG">Remote response: status=200 | data={"value":"amount: 200"} | headers=HTTPHeaderDict({'Content-Length': '23', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:14:17.427732" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:14:17.427816" level="TRACE">Return: 'amount: 200'</msg>
+<msg time="2025-11-12T22:14:17.427976" level="INFO">${actual_amount} = amount: 200</msg>
+<var>${actual_amount}</var>
+<arg>xpath=(//div[@class="history-list"]/div[@class="account-form"]/div/div[@class="Card_card__Q7ZOF"]/div)[${index}]/p[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T22:14:17.396590" elapsed="0.031431"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-11-12T22:14:17.428558" level="TRACE">Arguments: [ 'xpath=(//div[@class="history-list"]/div[@class="account-form"]/div/div[@class="Card_card__Q7ZOF"]/div)[1]/p[4]' ]</msg>
+<msg time="2025-11-12T22:14:17.428779" level="DEBUG">POST http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/elements {'using': 'xpath', 'value': '(//div[@class="history-list"]/div[@class="account-form"]/div/div[@class="Card_card__Q7ZOF"]/div)[1]/...'}</msg>
+<msg time="2025-11-12T22:14:17.444935" level="DEBUG">http://localhost:61151 "POST /session/a1543bd427a349ca859e500eea042b5c/elements HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:14:17.445072" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.219"}]} | headers=HTTPHeaderDict({'Content-Length': '129', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:14:17.445156" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:14:17.445267" level="DEBUG">GET http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.219/text {}</msg>
+<msg time="2025-11-12T22:14:17.457380" level="DEBUG">http://localhost:61151 "GET /session/a1543bd427a349ca859e500eea042b5c/element/f.D58CE6B639D2990E79539EF6B31F42E9.d.DE6E442EE740FE9515724273FF3DF2F0.e.219/text HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:14:17.457614" level="DEBUG">Remote response: status=200 | data={"value":"balance: 1300"} | headers=HTTPHeaderDict({'Content-Length': '25', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:14:17.457749" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:14:17.457851" level="TRACE">Return: 'balance: 1300'</msg>
+<msg time="2025-11-12T22:14:17.458014" level="INFO">${actual_balance} = balance: 1300</msg>
+<var>${actual_balance}</var>
+<arg>xpath=(//div[@class="history-list"]/div[@class="account-form"]/div/div[@class="Card_card__Q7ZOF"]/div)[${index}]/p[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-12T22:14:17.428274" elapsed="0.029817"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-11-12T22:14:17.459343" level="TRACE">Arguments: [ 'withdraw' | 'withdraw' ]</msg>
+<msg time="2025-11-12T22:14:17.459475" level="TRACE">Return: None</msg>
+<arg>${actual_type}</arg>
+<arg>${expected_history_txn.type}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-11-12T22:14:17.458385" elapsed="0.001153"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-11-12T22:14:17.460384" level="TRACE">Arguments: [ 'amount: 200' | 'amount: 200' ]</msg>
+<msg time="2025-11-12T22:14:17.460493" level="TRACE">Return: None</msg>
+<arg>${actual_amount}</arg>
+<arg>amount: ${expected_history_txn.amount}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-11-12T22:14:17.459731" elapsed="0.000839"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-11-12T22:14:17.461383" level="TRACE">Arguments: [ 'balance: 1300' | 'balance: 1300' ]</msg>
+<msg time="2025-11-12T22:14:17.461500" level="TRACE">Return: None</msg>
+<arg>${actual_balance}</arg>
+<arg>balance: ${expected_history_txn.balance}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-11-12T22:14:17.460752" elapsed="0.000814"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-11-12T22:14:17.461912" level="TRACE">Arguments: [ '1 + 1' ]</msg>
+<msg time="2025-11-12T22:14:17.462076" level="TRACE">Return: 2</msg>
+<msg time="2025-11-12T22:14:17.462193" level="INFO">${index} = 2</msg>
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-11-12T22:14:17.461758" elapsed="0.000481"/>
+</kw>
+<var name="${expected_history_txn}">{'type': 'withdraw', 'amount': 200, 'balance': 1300}</var>
+<status status="PASS" start="2025-11-12T22:14:17.318761" elapsed="0.143568"/>
+</iter>
+<var>${expected_history_txn}</var>
+<value>@{expected_data}</value>
+<status status="PASS" start="2025-11-12T22:14:17.318302" elapsed="0.144158"/>
+</for>
+<msg time="2025-11-12T22:14:17.462642" level="TRACE">Return: None</msg>
+<arg>expected_data=${scenerio4.TC_02.expected_history}</arg>
+<status status="PASS" start="2025-11-12T22:14:17.315870" elapsed="0.146842"/>
+</kw>
+<status status="PASS" start="2025-11-12T22:10:51.198215" elapsed="206.264992"/>
 </test>
-<status status="PASS" start="2025-11-07T00:18:13.385186" elapsed="13.350264"/>
-</suite>
-<status status="PASS" start="2025-11-07T00:18:13.373405" elapsed="13.362379"/>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-11-12T22:14:17.466206" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-11-12T22:14:17.466328" level="DEBUG">Closing browser with session id a1543bd427a349ca859e500eea042b5c.</msg>
+<msg time="2025-11-12T22:14:17.466516" level="DEBUG">DELETE http://localhost:61151/session/a1543bd427a349ca859e500eea042b5c {}</msg>
+<msg time="2025-11-12T22:14:17.505144" level="DEBUG">http://localhost:61151 "DELETE /session/a1543bd427a349ca859e500eea042b5c HTTP/1.1" 200 0</msg>
+<msg time="2025-11-12T22:14:17.505284" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
+<msg time="2025-11-12T22:14:17.505354" level="DEBUG">Finished Request</msg>
+<msg time="2025-11-12T22:14:19.583594" level="TRACE">Return: None</msg>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-12T22:14:17.466087" elapsed="2.117577"/>
+</kw>
+<status status="PASS" start="2025-11-12T22:10:48.889772" elapsed="210.693946"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">All Input</stat>
 </tag>
 <suite>
-<stat name="Testcases" id="s1" pass="1" fail="0" skip="0">Testcases</stat>
-<stat name="Testcase Scenerio1" id="s1-s1" pass="1" fail="0" skip="0">Testcases.Testcase Scenerio1</stat>
+<stat name="Testcase Scenerio4" id="s1" pass="1" fail="0" skip="0">Testcase Scenerio4</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-11-12T22:10:48.885421" level="WARN">Error in file 'C:\Users\Name\Desktop\CODING\MASTER Degree\Testprogram\GroupProject\CU_BANK\Github\CU-Bank-Group1-Testing\testcases\testcase_scenerio4.robot' on line 109: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-11-12T22:10:49.025978" level="ERROR">Error in file 'C:\Users\Name\Desktop\CODING\MASTER Degree\Testprogram\GroupProject\CU_BANK\Github\CU-Bank-Group1-Testing\resources\imports.robot' on line 3: Importing library 'MongoDBLibrary' failed: ModuleNotFoundError: No module named 'mongo_connection_manager'
+Traceback (most recent call last):
+  File "C:\Users\Name\Desktop\CODING\MASTER Degree\Testprogram\GroupProject\CU_BANK\Github\CU-Bank-Group1-Testing\env\Lib\site-packages\MongoDBLibrary\__init__.py", line 1, in &lt;module&gt;
+    from mongo_connection_manager import MongoConnectionManager
+PYTHONPATH:
+  C:\Users\Name\Desktop\CODING\MASTER Degree\Testprogram\GroupProject\CU_BANK\Github\CU-Bank-Group1-Testing\env\Scripts\robot.exe
+  C:\Python313\python313.zip
+  C:\Python313\DLLs
+  C:\Python313\Lib
+  C:\Python313
+  C:\Users\Name\Desktop\CODING\MASTER Degree\Testprogram\GroupProject\CU_BANK\Github\CU-Bank-Group1-Testing\env
+  C:\Users\Name\Desktop\CODING\MASTER Degree\Testprogram\GroupProject\CU_BANK\Github\CU-Bank-Group1-Testing\env\Lib\site-packages</msg>
 </errors>
 </robot>
