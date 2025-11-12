@@ -166,6 +166,7 @@ TC02 Withdraw success (≤ balance)
     Sleep    2s
     Reload Page
     Verify Balance On Title    1300
+    Sleep    200s
     Verify History transaction should correct_windows   expected_data=${scenerio4.TC_02.expected_history}
 
 # ============================ TC03 ============================
