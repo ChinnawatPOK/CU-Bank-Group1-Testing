@@ -21,6 +21,7 @@ Make deposit transaction success
     [Arguments]    ${depositAmount}
     Wait Until Element Is Visible  xpath=//input[@cid='d1']
     Input Text    xpath=//input[@cid='d1']  ${depositAmount}
+    Wait Until Element Is Visible  xpath=//button[@cid='dc']
     Click Button  xpath=//button[@cid='dc']
     Wait Until Element Is Visible  xpath=//div[@class="history-list"]/div[@class="account-form"]
 
@@ -28,9 +29,6 @@ Make deposit transaction
     [Arguments]    ${depositAmount}
     Wait Until Element Is Visible  xpath=//input[@cid='d1']
     Input Text    xpath=//input[@cid='d1']  ${depositAmount}
-    Click Button  xpath=//button[@cid='dc']
-
-Click deposit button
     Wait Until Element Is Visible  xpath=//button[@cid='dc']
     Click Button  xpath=//button[@cid='dc']
 

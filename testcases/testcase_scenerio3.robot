@@ -5,11 +5,16 @@ Resource    ../keywords/common/mongoDatabaseKeywords.robot
 
 Variables    ../resources/testdata/scenerio3.yml
 
-Suite Setup       Login with account number and password  accountNumber=${ACCOUNT_ID}  password=1234
-Suite Teardown    Close Browser
+Suite Setup       Run Keywords  Delete Account By Id  ${ACCOUNT_ID}
+                  ...   AND   Create New User  ${NAME}   ${ACCOUNT_ID}  ${PASSWORD}
+                  ...   AND   Login with account number and password  accountNumber=${ACCOUNT_ID}  password=${PASSWORD}
+Suite Teardown    Run Keywords  Close Browser
+                  ...   AND    Delete Account By Id  ${ACCOUNT_ID}
 
 *** Variables ***
 ${ACCOUNT_ID}       1234567890
+${NAME}           Litle Chacoal
+${PASSWORD}       1111
 
 *** Test Cases ***
 TC01 Deposit Success
