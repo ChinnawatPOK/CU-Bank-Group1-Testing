@@ -138,8 +138,8 @@ Should Contain Any
 # ============================ TC01 ============================
 # Withdraw fail (> balance)
 TC01 Withdraw fail (> balance)
-    Delete Transactions On Account
-    Update Balance By Amount    ${BALANCE_BASE}
+    Delete Transactions On Account  ${VALID_ACC}
+    Update Balance By Amount    ${VALID_ACC}  ${BALANCE_BASE}
     Go To Account
     Reload Page
     ${before}=    Get Balance
@@ -154,8 +154,8 @@ TC01 Withdraw fail (> balance)
 # ============================ TC02 ============================
 # Withdraw success (≤ balance)
 TC02 Withdraw success (≤ balance)
-    Delete Transactions On Account
-    Update Balance By Amount    ${BALANCE_BASE}
+    Delete Transactions On Account  ${VALID_ACC}
+    Update Balance By Amount    ${VALID_ACC}  ${BALANCE_BASE}
     Go To Account
     Reload Page
     ${before}=    Get Balance
@@ -172,8 +172,8 @@ TC02 Withdraw success (≤ balance)
 # ============================ TC03 ============================
 # Withdraw invalid (≤ 0) – ตรวจข้อความจาก backend
 TC03 Withdraw invalid (≤ 0)
-    Delete Transactions On Account
-    Update Balance By Amount    ${BALANCE_BASE}
+    Delete Transactions On Account  ${VALID_ACC}
+    Update Balance By Amount    ${VALID_ACC}  ${BALANCE_BASE}
     Go To Account
     Reload Page
     ${before}=    Get Balance
@@ -188,8 +188,8 @@ TC03 Withdraw invalid (≤ 0)
 # ============================ TC04 ============================
 # Withdraw invalid (decimal & non-numeric) – ตรวจ popup ของ browser (frontend)
 TC04 Withdraw invalid (non-integer / non-numeric)
-    Delete Transactions On Account
-    Update Balance By Amount    ${BALANCE_BASE}
+    Delete Transactions On Account  ${VALID_ACC}
+    Update Balance By Amount    ${VALID_ACC}  ${BALANCE_BASE}
     Go To Account
     Reload Page
     ${before}=    Get Balance
