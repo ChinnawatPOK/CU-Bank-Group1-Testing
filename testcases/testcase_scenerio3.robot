@@ -7,6 +7,7 @@ Variables    ../resources/testdata/scenerio3.yml
 
 Suite Setup       Run Keywords  Delete Account By Id  ${ACCOUNT_ID}
                   ...   AND   Create New User  ${NAME}   ${ACCOUNT_ID}  ${PASSWORD}
+                  ...   AND   Open Browser First
                   ...   AND   Login with account number and password  accountNumber=${ACCOUNT_ID}  password=${PASSWORD}
 Suite Teardown    Run Keywords  Close Browser
                   ...   AND    Delete Account By Id  ${ACCOUNT_ID}

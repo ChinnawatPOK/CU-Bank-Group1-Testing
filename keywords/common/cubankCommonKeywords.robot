@@ -10,12 +10,14 @@ ${BROWSER}       chrome
 *** Keywords ***
 Login with account number and password
     [Arguments]    ${accountNumber}  ${password}
-    Open Browser    http://localhost:3000  chrome
-    Maximize Browser Window
     Input Text   //*[@id='accountId']  ${accountNumber}
     Input Text   //*[@id='password']  ${password}
     Click Button  //*[@id="root"]/div/div/div/form/button
     Wait Until Page Contains    Account ID:
+
+Open Browser First
+    Open Browser    http://localhost:3000  chrome
+    Maximize Browser Window
     
 Make deposit transaction success
     [Arguments]    ${depositAmount}
@@ -87,3 +89,31 @@ Get Balance
     ${bal_text}=    Get Text    xpath=(//h2[text()="Balance:"]/following-sibling::h1)[1]
     ${bal}=         Convert To Integer    ${bal_text}
     [Return]        ${bal}
+
+
+# ======= Withdrawal
+Go To Withdraw
+#    Go To Account
+    Wait Until Page Contains Element    xpath=//h2[normalize-space()="Withdraw"]    15s
+    Scroll Element Into View            xpath=//h2[normalize-space()="Withdraw"]
+
+Submit Withdraw
+    [Arguments]    ${amount}
+    Go To Withdraw
+    Wait Until Page Contains Element    xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]    10s
+    Clear Element Text                  xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]
+    Input Text                          xpath=//h2[normalize-space()="Withdraw"]/following::input[@cid="w1"][1]    ${amount}
+    Click Button                        css:[cid="wc"]
+    Sleep    500ms
+
+Validate Withdraw Error
+    [Arguments]    ${msg}
+    Wait Until Element Is Visible    css:[cid="withdraw-error-mes"]    5s
+    ${txt}=    Get Text    css:[cid="withdraw-error-mes"]
+    Should Be Equal As Strings    ${txt}    ${msg}
+    Capture Page Screenshot
+
+Validate Balance Equals
+    [Arguments]    ${expected}
+    ${cur}=    Get Balance
+    Should Be Equal As Integers    ${cur}    ${expected}
