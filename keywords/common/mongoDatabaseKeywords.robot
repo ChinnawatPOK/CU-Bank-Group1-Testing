@@ -2,7 +2,7 @@
 Resource    ../../resources/imports.robot
 
 *** Variables ***
-${MONGO_URI}        mongodb+srv://peerapatworkformal_db_user:FW6gT5fhJnQ6fVRy@cubankcluster.846cpsh.mongodb.net/?appName=CUBankCluster
+${MONGO_URI}        mongodb+srv://chinnawat_kaewchim_db_user:0VFL8UIiiD8yHYPN@cubankcluster.jcnfl4o.mongodb.net/?appName=CUBankCluster
 ${DB_NAME}          test
 ${COLLECTION_NAME}  users
 ${ACCOUNT_ID}       6870194521

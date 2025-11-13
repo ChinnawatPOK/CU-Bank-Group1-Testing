@@ -3,8 +3,8 @@ scenerio3:
     expected_history: [
       {
         "type": deposit,
-        "amount": 500,
-        "balance": 500
+        "amount": 1500,
+        "balance": 1500
       }
     ]
   TC_002:

@@ -1,0 +1,9 @@
+s4:
+  TC_002:
+    expected_history: [
+      {
+        "type": deposit,
+        "amount": 1500,
+        "balance": 1500
+      }
+    ]
