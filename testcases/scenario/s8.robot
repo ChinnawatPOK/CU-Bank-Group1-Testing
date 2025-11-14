@@ -3,7 +3,7 @@ Resource    ../../resources/imports.robot
 Resource    ../../keywords/common/cubankCommonKeywords.robot
 Resource    ../../keywords/common/mongoDatabaseKeywords.robot
 
-Variables    ../../resources/testdata/scenerio5.yml
+Variables    ../../resources/testdata/scenario/s8.yml
 
 Suite Setup       Run Keywords  Delete Account By Id    ${ACCOUNT_ID}
                   ...   AND   Create New User    ${NAME}    ${ACCOUNT_ID}    ${PASSWORD}
@@ -61,7 +61,7 @@ TC30 โอนเงินสำเร็จ - โอนจำนวนเท่
     ...       AND   Update Balance By Amount    ${ACCOUNT_ID}    ${BALANCE_BASE}
     Go To Transfer
     Submit Transfer   ${TARGET_VALID}   ${BALANCE_BASE}
-    Verify History transaction should correct   expected_data=${scenerio5.TC_002.expected_history}
+    Verify History transaction should correct   expected_data=${s8.TC_001.expected_history}
  
 TC31 โอนเงินไม่สำเร็จ - ยอดเงินคงเหลือมีค่าเท่ากับศูนย์
     Submit Transfer   ${TARGET_VALID}   ${BALANCE_BASE}

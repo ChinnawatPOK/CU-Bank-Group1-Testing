@@ -26,6 +26,8 @@ Validate Error
     Should Be Equal As Strings    ${txt}    ${msg}
 
 *** Test Cases ***
+Login success
+    Login with account number and password  accountNumber=${VALID_ACC}  password=${PASSWORD}
 
 Login Account Short
     Input Text    id=accountId     12345
