@@ -1,8 +1,9 @@
 *** Settings ***
-Resource    ../resources/imports.robot
-Resource    ../keywords/common/mongoDatabaseKeywords.robot
-Resource    ../keywords/common/cubankCommonKeywords.robot
-Resource    ../keywords/common/mongoDatabaseKeywords.robot
+Resource    ../../resources/imports.robot
+Resource    ../../keywords/common/mongoDatabaseKeywords.robot
+Resource    ../../keywords/common/cubankCommonKeywords.robot
+Resource    ../../keywords/common/mongoDatabaseKeywords.robot
+
 Suite Setup       Run Keywords  Delete Account By Id  ${VALID_ACC}
                   ...   AND   Create New User  ${NAME}   ${VALID_ACC}  ${PASSWORD}
                   ...   AND   Open Browser First
@@ -26,14 +27,7 @@ Validate Error
     Should Be Equal As Strings    ${txt}    ${msg}
 
 *** Test Cases ***
-
-Login Account Short
-    Input Text    id=accountId     12345
-    Input Text    id=password      ${VALID_PASS}
-    Execute JavaScript    document.querySelector('button[cid="lc"]').click()
-    Validate Error    Your account ID must be exactly 10 digits long.
-
-Login Account Long
+TC13 ข้าสู่ระบบไม่ผ่าน - กรอกหมายเลขบัญชียาวเกินไป (Account Number > 10 digits)
     Reload Page
     Sleep             200ms
     Input Text    id=accountId     1234567890123456
@@ -41,7 +35,13 @@ Login Account Long
     Execute JavaScript    document.querySelector('button[cid="lc"]').click()
     Validate Error    Your account ID must be exactly 10 digits long.
 
-Login Account NonNumeric
+TC14 ข้าสู่ระบบไม่ผ่าน - กรอกหมายเลขบัญชีสั้นเกินไป (Account Number < 10 digits)
+    Input Text    id=accountId     12345
+    Input Text    id=password      ${VALID_PASS}
+    Execute JavaScript    document.querySelector('button[cid="lc"]').click()
+    Validate Error    Your account ID must be exactly 10 digits long.
+
+TC15 ข้าสู่ระบบไม่ผ่าน - กรอกหมายเลขบัญชีมีตัวอักษร
     Reload Page
     Sleep             200ms
     Input Text    id=accountId     ABCDEFGHIJ
@@ -49,7 +49,7 @@ Login Account NonNumeric
     Execute JavaScript    document.querySelector('button[cid="lc"]').click()        
     Validate Error    Your account ID should contain numbers only.
 
-Login Password Too Short
+TC16 เข้าสู่ระบบไม่ผ่าน - รหัสผ่านสั้นเกินไป 
     Reload Page
     Sleep             200ms
     Input Text    id=accountId     ${VALID_ACC}
@@ -57,23 +57,7 @@ Login Password Too Short
     Execute JavaScript    document.querySelector('button[cid="lc"]').click()
     Validate Error    Your password must be exactly 4 digits long.
 
-Login Password Too Long
-    Reload Page
-    Sleep             200ms
-    Input Text    id=accountId     ${VALID_ACC}
-    Input Text    id=password      12345678
-    Execute JavaScript    document.querySelector('button[cid="lc"]').click()
-    Validate Error   Your password must be exactly 4 digits long.
-
-Login Password NonNumeric
-    Reload Page
-    Sleep             200ms
-    Input Text    id=accountId     ${VALID_ACC}
-    Input Text    id=password      AV12
-    Execute JavaScript    document.querySelector('button[cid="lc"]').click()         
-    Validate Error    Your password should contain numbers only.
-
-Login User Not Found
+TC17 เข้าสู่ระบบไม่ผ่าน - กรอกเลขบัญชีไม่ตรงกับผู้ใช้ในระบบ 
     Reload Page
     Sleep             200ms
     Input Text    id=accountId    ${INVALID_ACC}
@@ -81,7 +65,24 @@ Login User Not Found
     Execute JavaScript    document.querySelector('button[cid="lc"]').click()
     Validate Error    User not found. Please check your account ID.
 
-Login Invalid Password
+TC18 เข้าสู่ระบบไม่ผ่าน - รหัสผ่านยาวเกินไป 
+    Reload Page
+    Sleep             200ms
+    Input Text    id=accountId     ${VALID_ACC}
+    Input Text    id=password      12345678
+    Execute JavaScript    document.querySelector('button[cid="lc"]').click()
+    Validate Error   Your password must be exactly 4 digits long.
+
+TC19 เข้าสู่ระบบไม่ผ่าน - รหัสผ่านไม่ใช่ตัวเลข 
+    Reload Page
+    Sleep             200ms
+    Input Text    id=accountId     ${VALID_ACC}
+    Input Text    id=password      AV12
+    Execute JavaScript    document.querySelector('button[cid="lc"]').click()         
+    Validate Error    Your password should contain numbers only.
+
+
+TC20 เข้าสู่ระบบไม่ผ่าน - รหัสผ่านไม่ตรงกับที่สมัคร  
     Reload Page
     Sleep             200ms
     Input Text    id=accountId    ${VALID_ACC}
