@@ -1,7 +1,14 @@
 *** Settings ***
 Library           SeleniumLibrary
-Suite Setup       Login To Bank
-Suite Teardown    Close Browser
+
+Suite Setup       Run Keywords  Delete Account By Id    ${VALID_ACC}
+                  ...   AND   Create New User    ${NAME}    ${VALID_ACC}    ${PASSWORD}
+                  ...    AND    Create New User    ${NAME}    ${TARGET_VALID}    ${PASSWORD}     
+                  ...   AND   Open Browser First
+                  ...   AND   Login with account number and password  accountNumber=${VALID_ACC}  password=${PASSWORD}
+Suite Teardown    Run Keywords  Close Browser
+                  ...   AND    Delete Account By Id    ${VALID_ACC}
+                  ...    AND    Delete Account By Id    ${TARGET_VALID}
 
 Resource    ../keywords/common/cubankCommonKeywords.robot
 Resource    ../keywords/common/mongoDatabaseKeywords.robot
@@ -12,10 +19,12 @@ Variables    ../resources/testdata/scenerio5.yml
 ${BASE_URL}       http://localhost:3000
 ${BROWSER}        chrome
 
-${VALID_ACC}      1234567894
+${NAME}           Litle Chacoal
+${PASSWORD}       1111
+${VALID_ACC}      1234567896
 ${PASSWORD}       1234
 
-${TARGET_VALID}   2222222222         # A1: correct format + exists
+${TARGET_VALID}   1234567897         # A1: correct format + exists
 ${TARGET_NOTFOUND}    5555555555        # A2: valid format but not exist
 ${TARGET_SHORT}   12345              # A3: < 10 digits
 ${TARGET_LONG}    123451234512345    # A4: > 10 digits

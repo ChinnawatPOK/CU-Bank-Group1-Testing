@@ -1,14 +1,21 @@
 *** Settings ***
 Resource    ../resources/imports.robot
 Resource    ../keywords/common/mongoDatabaseKeywords.robot
+Resource    ../keywords/common/cubankCommonKeywords.robot
+Resource    ../keywords/common/mongoDatabaseKeywords.robot
+
 Suite Setup    Open Browser    http://localhost:3000/register    chrome
-Suite Teardown    Close Browser
+Suite Teardown    Run Keywords  Close Browser
+                  ...   AND    Delete Account By Id    ${VALID_ACC}
 
 *** Variables ***
 ${VALID_ACC}         3434343434
+${DUPLICATE_ACC}    1212121212
 ${VALID_PASS}        1234
 ${VALID_FIRST}       Nong
 ${VALID_LAST}        Chacoal
+${NAME}           Nong Chacoal
+${PASSWORD}       1111
 
 *** Keywords ***
 Validate Error
@@ -78,7 +85,7 @@ Register Account NonNumeric
     Validate Error    Your password should contain numbers only.
 
 Register Missing FirstName
-    Reload Page
+    Reload Page    
     Sleep             200ms
     Input Text    id=accountId     ${VALID_ACC}
     Input Text    id=password      ${VALID_PASS}
@@ -107,18 +114,6 @@ Register Name Too Long
     Execute JavaScript    document.querySelector('button[cid="rc"]').click()
     Validate Error    The combined length of your first and last name must not exceed 30 characters.
 
-Register With Duplicate Account ID
-    [Setup]   Run Keywords    Delete Account By Id    ${VALID_ACC}    
-    ...    AND    Create New User    ${VALID_FIRST}    ${VALID_ACC}    ${VALID_PASS}    
-    ...    AND    Reload Page
-    Sleep             500ms
-    Input Text    id=accountId     ${VALID_ACC}
-    Input Text    id=password      ${VALID_PASS}
-    Input Text    id=firstName     ${VALID_FIRST}
-    Input Text    id=lastName      ${VALID_LAST}
-    Execute JavaScript    document.querySelector('button[cid="rc"]').click()
-    Validate Error    This account ID is already in use. Please choose another.  
-
 Register Success
     [Setup]   Run Keywords    Delete Account By Id    ${VALID_ACC}        
     ...    AND    Reload Page
@@ -131,3 +126,13 @@ Register Success
     ${alert_text}=  Handle Alert    action=ACCEPT
     Should Be Equal As Strings    ${alert_text}    Registration successful! 
  
+
+Register With Duplicate Account ID
+    Open Browser    http://localhost:3000/register    chrome
+    Sleep             200ms
+    Input Text    id=accountId     ${VALID_ACC}
+    Input Text    id=password      ${VALID_PASS}
+    Input Text    id=firstName     ${VALID_FIRST}
+    Input Text    id=lastName      ${VALID_LAST}
+    Execute JavaScript    document.querySelector('button[cid="rc"]').click()
+    Validate Error    This account ID is already in use. Please choose another.  

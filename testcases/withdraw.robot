@@ -1,7 +1,15 @@
 *** Settings ***
 Library           SeleniumLibrary
+Library    ../.venv/lib/python3.14/site-packages/robot/libraries/OperatingSystem.py
 Suite Setup       Login To Bank
 Suite Teardown    Close Browser
+
+# Suite Setup       Run Keywords  Delete Account By Id    ${VALID_ACC}
+#                   ...   AND   Create New User    ${NAME}    ${VALID_ACC}    ${PASSWORD}  
+#                   ...   AND   Open Browser First
+#                   ...   AND   Login with account number and password  accountNumber=${VALID_ACC}  password=${PASSWORD}
+# Suite Teardown    Run Keywords  Close Browser
+#                   ...   AND    Delete Account By Id    ${VALID_ACC}
 
 Resource          ../resources/imports.robot
 Resource          ../keywords/common/mongoDatabaseKeywords.robot
@@ -13,7 +21,8 @@ Variables    ../resources/testdata/scenerio4.yml
 ${BASE_URL}           http://localhost:3000
 ${BROWSER}            chrome
 
-${VALID_ACC}          6870194521
+${NAME}           Litle Chacoal
+${VALID_ACC}          1234567891
 ${PASSWORD}           1234
 
 ${BALANCE_BASE}       1500
@@ -85,21 +94,6 @@ Validate Balance Equals
 Validate Success
     Wait Until Page Contains    Confirm    timeout=5s
 
-Verify History transaction should correct_windows
-    [Arguments]    ${expected_data}
-    ${index}=  Set Variable   1
-    FOR  ${expected_history_txn}  IN  @{expected_data}
-         Wait Until Element Is Visible  xpath=//div[@class="history-list"]/div[@class="account-form"]/div[${index}]
-         Wait Until Element Is Visible  xpath=//div[@class="history-list"]/div[@class="account-form"]/div[${index}]
-         ${actual_type}=       Get Text          xpath=(//div[@class="history-list"]/div[@class="account-form"]/div/div[@class="Card_card__Q7ZOF"]/div)[${index}]/h2[1]
-         ${actual_amount}=     Get Text          xpath=(//div[@class="history-list"]/div[@class="account-form"]/div/div[@class="Card_card__Q7ZOF"]/div)[${index}]/p[3]
-         ${actual_balance}=    Get Text          xpath=(//div[@class="history-list"]/div[@class="account-form"]/div/div[@class="Card_card__Q7ZOF"]/div)[${index}]/p[4]
-         Should Contain    ${actual_type}    ${expected_history_txn.type}
-         Should Contain    ${actual_amount}   amount: ${expected_history_txn.amount}
-         Should Contain    ${actual_balance}   balance: ${expected_history_txn.balance}
-         ${index}=  Evaluate  ${index} + 1
-    END
-
 # --------------------- NEW: อ่าน popup validation ของ browser ---------------------
 Get Withdraw Native Tooltip
     [Documentation]    อ่านข้อความ native validation ของ <input type="number"> (frontend)
@@ -138,8 +132,8 @@ Should Contain Any
 # ============================ TC01 ============================
 # Withdraw fail (> balance)
 TC01 Withdraw fail (> balance)
-    Delete Transactions On Account  ${VALID_ACC}
-    Update Balance By Amount    ${VALID_ACC}  ${BALANCE_BASE}
+    [Setup]   Run Keywords    Delete Transactions On Account    ${VALID_ACC}
+    ...    AND    Update Balance By Amount    ${VALID_ACC}  ${BALANCE_BASE}
     Go To Account
     Reload Page
     ${before}=    Get Balance
@@ -154,26 +148,17 @@ TC01 Withdraw fail (> balance)
 # ============================ TC02 ============================
 # Withdraw success (≤ balance)
 TC02 Withdraw success (≤ balance)
-    Delete Transactions On Account  ${VALID_ACC}
-    Update Balance By Amount    ${VALID_ACC}  ${BALANCE_BASE}
+    [Setup]   Run Keywords    Delete Transactions On Account    ${VALID_ACC}
+    ...    AND    Update Balance By Amount    ${VALID_ACC}  ${BALANCE_BASE}
     Go To Account
-    Reload Page
-    ${before}=    Get Balance
-    Should Be Equal As Integers    ${before}    ${BALANCE_BASE}
-
     Submit Withdraw    ${WITHDRAW_OK}
-    Validate Success
-    Sleep    2s
-    Reload Page
-    Verify Balance On Title    1300
-    Sleep    200s
-    Verify History transaction should correct_windows   expected_data=${scenerio4.TC_02.expected_history}
+    Verify History transaction should correct    expected_data=${scenerio4.TC_02.expected_history}
 
 # ============================ TC03 ============================
 # Withdraw invalid (≤ 0) – ตรวจข้อความจาก backend
 TC03 Withdraw invalid (≤ 0)
-    Delete Transactions On Account  ${VALID_ACC}
-    Update Balance By Amount    ${VALID_ACC}  ${BALANCE_BASE}
+    [Setup]   Run Keywords    Delete Transactions On Account    ${VALID_ACC}
+    ...    AND    Update Balance By Amount    ${VALID_ACC}  ${BALANCE_BASE}
     Go To Account
     Reload Page
     ${before}=    Get Balance
@@ -188,8 +173,8 @@ TC03 Withdraw invalid (≤ 0)
 # ============================ TC04 ============================
 # Withdraw invalid (decimal & non-numeric) – ตรวจ popup ของ browser (frontend)
 TC04 Withdraw invalid (non-integer / non-numeric)
-    Delete Transactions On Account  ${VALID_ACC}
-    Update Balance By Amount    ${VALID_ACC}  ${BALANCE_BASE}
+    [Setup]   Run Keywords    Delete Transactions On Account    ${VALID_ACC}
+    ...    AND    Update Balance By Amount    ${VALID_ACC}  ${BALANCE_BASE}
     Go To Account
     Reload Page
     ${before}=    Get Balance

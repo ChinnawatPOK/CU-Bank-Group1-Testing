@@ -3,11 +3,20 @@ Resource    ../resources/imports.robot
 Suite Setup    Open Browser    http://localhost:3000/    chrome
 Suite Teardown    Close Browser
 
+Suite Setup       Run Keywords  Delete Account By Id  ${VALID_ACC}
+                  ...   AND   Create New User  ${NAME}   ${VALID_ACC}  ${PASSWORD}
+                  ...   AND   Open Browser First
+Suite Teardown    Run Keywords  Close Browser
+                  ...   AND    Delete Account By Id  ${VALID_ACC}
+
 *** Variables ***
-${VALID_ACC}         1234567890
+${VALID_ACC}         1234567897
 ${INVALID_ACC}    0000000000
 ${VALID_PASS}        1234
 ${INVALID_PASS}    0000
+${NAME}           Litle Chacoal
+${PASSWORD}       1111
+
 
 *** Keywords ***
 Validate Error
