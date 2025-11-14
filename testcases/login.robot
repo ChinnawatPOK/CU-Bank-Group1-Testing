@@ -1,8 +1,8 @@
 *** Settings ***
 Resource    ../resources/imports.robot
-Suite Setup    Open Browser    http://localhost:3000/    chrome
-Suite Teardown    Close Browser
-
+Resource    ../keywords/common/mongoDatabaseKeywords.robot
+Resource    ../keywords/common/cubankCommonKeywords.robot
+Resource    ../keywords/common/mongoDatabaseKeywords.robot
 Suite Setup       Run Keywords  Delete Account By Id  ${VALID_ACC}
                   ...   AND   Create New User  ${NAME}   ${VALID_ACC}  ${PASSWORD}
                   ...   AND   Open Browser First

@@ -65,4 +65,5 @@ TC30 โอนเงินสำเร็จ - โอนจำนวนเท่
  
 TC31 โอนเงินไม่สำเร็จ - ยอดเงินคงเหลือมีค่าเท่ากับศูนย์
     Submit Transfer   ${TARGET_VALID}   ${BALANCE_BASE}
+    Verify Balance On Title  balance=0
     Validate Error    Your balance is not enough to complete the transfer.

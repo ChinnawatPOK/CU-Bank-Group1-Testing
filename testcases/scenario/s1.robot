@@ -72,7 +72,7 @@ TC06 ลงทะเบียนไม่ผ่าน - ไม่กรอกช
     Sleep             200ms
     Input Text    id=accountId     ${VALID_ACC}
     Input Text    id=password      ${VALID_PASS}
-    Input Text    id=firstName     
+    Input Text    id=firstName    ${EMPTY}     
     Input Text    id=lastName      ${VALID_LAST}
     Execute JavaScript    document.querySelector('button[cid="rc"]').click()
     Validate Error    Please fill your first name
@@ -83,7 +83,7 @@ TC07 ลงทะเบียนไม่ผ่าน - ไม่กรอกน
     Input Text    id=accountId     ${VALID_ACC}
     Input Text    id=password      ${VALID_PASS}
     Input Text    id=firstName     ${VALID_FIRST}
-    Input Text    id=lastName      
+    Input Text    id=lastName    ${EMPTY}      
     Execute JavaScript    document.querySelector('button[cid="rc"]').click()
     Validate Error    Please fill your last name
 
