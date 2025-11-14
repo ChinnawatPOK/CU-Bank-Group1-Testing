@@ -3,7 +3,7 @@ Resource    ../../resources/imports.robot
 Resource    ../../keywords/common/cubankCommonKeywords.robot
 Resource    ../../keywords/common/mongoDatabaseKeywords.robot
 
-Variables    ../../resources/testdata/scenario/s4.yml
+Variables    ../../resources/testdata/scenario/s5.yml
 
 Suite Setup       Run Keywords  Delete Account By Id    ${ACCOUNT_ID}
                   ...   AND   Create New User    ${NAME}    ${ACCOUNT_ID}    ${PASSWORD}  
@@ -65,13 +65,13 @@ TC21 ฝากเงินสำเร็จ
     Reload Page
     Make deposit transaction success   depositAmount=1500
     Verify Balance On Title  balance=1500
-    Verify History transaction should correct   expected_data=${s4.TC_002.expected_history}
+    Verify History transaction should correct   expected_data=${s5.TC_001.expected_history}
 
 TC26 ถอนเงินสำเร็จ (Amount < balance) 
     Reload Page
     Verify Balance On Title  balance=1500
     Submit Withdraw      ${WITHDRAW_AMOUNT}
-    Verify History transaction should correct   expected_data=${s4.TC_002.expected_history}
+    Verify History transaction should correct   expected_data=${s5.TC_001.expected_history}
 
 TC35 โอนเงินไม่สำเร็จ - บัญชีไม่พบในระบบ 
     Go To Transfer

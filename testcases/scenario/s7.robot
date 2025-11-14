@@ -2,7 +2,7 @@
 Library           SeleniumLibrary
 Resource          ../../keywords/common/cubankCommonKeywords.robot
 Resource          ../../keywords/common/mongoDatabaseKeywords.robot
-Variables    ../../resources/testdata/scenerio7.yml
+Variables    ../../resources/testdata/scenario/s7.yml
 
 Suite Setup       Run Keywords  Delete Account By Id    ${VALID_ACC}
                   ...   AND   Create New User    ${NAME}    ${VALID_ACC}    ${PASSWORD}   
@@ -73,7 +73,7 @@ TC44 ชำระค่าน้ำ 150 บาท
     Validate Success
     Reload Page
     Verify Balance On Title    balance=9850
-    Verify History transaction should correct   expected_data=${scenerio7.TC_001.expected_history}
+    Verify History transaction should correct   expected_data=${s7.TC_001.expected_history}
 
 
 TC45 ชำระค่าไฟ 2000 บาท
@@ -83,7 +83,7 @@ TC45 ชำระค่าไฟ 2000 บาท
     Validate Success
     Reload Page
     Verify Balance On Title    balance=7850
-    Verify History transaction should correct   expected_data=${scenerio7.TC_002.expected_history}
+    Verify History transaction should correct   expected_data=${s7.TC_002.expected_history}
 
 TC46 ชำระค่าโทรศัพท์ 300 บาท
     [Setup]    Delete Transactions On Account    ${VALID_ACC}
@@ -92,7 +92,7 @@ TC46 ชำระค่าโทรศัพท์ 300 บาท
     Validate Success
     Reload Page
     Verify Balance On Title    balance=7550
-    Verify History transaction should correct   expected_data=${scenerio7.TC_003.expected_history}
+    Verify History transaction should correct   expected_data=${s7.TC_003.expected_history}
 
 
 TC47 ชำระเท่ากับยอดคงเหลือ
@@ -101,4 +101,4 @@ TC47 ชำระเท่ากับยอดคงเหลือ
     Submit Bill Payment    ${BILL_WATER}    ${AMOUNT_EQUAL}
     Validate Success
     Reload Page
-    Verify History transaction should correct   expected_data=${scenerio7.TC_004.expected_history}
+    Verify History transaction should correct   expected_data=${s7.TC_004.expected_history}

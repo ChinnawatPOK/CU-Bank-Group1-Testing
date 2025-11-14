@@ -100,7 +100,7 @@ Get Withdraw Native Tooltip
     
     ${msg}=    Execute Javascript    return document.querySelector('input[cid="w1"]').validationMessage;
     Log To Console    Withdraw tooltip: ${msg}
-    [Return]    ${msg}
+    Return    ${msg}
 
 # --------------------- NEW: ใส่ค่า non-numeric ด้วย JS (type=number ไม่ยอม) -----
 Set Withdraw Value Via JS
