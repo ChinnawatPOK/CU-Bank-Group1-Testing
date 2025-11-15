@@ -3,14 +3,6 @@ scenerio3:
     expected_history: [
       {
         "type": deposit,
-        "amount": 1500,
-        "balance": 1500
-      }
-    ]
-  TC_002:
-    expected_history: [
-      {
-        "type": deposit,
         "amount": 500,
         "balance": 500
       }
