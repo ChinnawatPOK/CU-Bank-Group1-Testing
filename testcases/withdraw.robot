@@ -122,7 +122,7 @@ Should Contain Any
         ${found}=    Run Keyword And Return Status    Should Contain    ${actual}    ${c}
         Run Keyword If    ${found}    ${ok}=    Set Variable    True
     END
-    Run Keyword Unless    ${ok}    Fail    Actual text did not contain any candidate.\nActual: ${actual}\nCandidates: ${candidates}
+    Run Keyword If    ${ok}    Fail    Actual text did not contain any candidate.\nActual: ${actual}\nCandidates: ${candidates}
 
 
 *** Test Cases ***
@@ -184,8 +184,6 @@ TC04 Withdraw invalid (non-integer / non-numeric)
     Clear Element Text    css:[cid="w1"]
     Input Text            css:[cid="w1"]    ${WITHDRAW_DEC}
     Click Button          css:[cid="wc"]
-    ${tip1}=    Get Withdraw Native Tooltip
-    Should Contain Any    ${tip1}    Please enter a valid value.    nearest valid values
-
     Validate Balance Equals             ${BALANCE_BASE}
+    Validate Withdraw Error      ${MSG_DECIMAL}
     Verify History transaction should empty

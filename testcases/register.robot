@@ -89,7 +89,7 @@ Register Missing FirstName
     Sleep             200ms
     Input Text    id=accountId     ${VALID_ACC}
     Input Text    id=password      ${VALID_PASS}
-    Input Text    id=firstName     
+    Input Text    id=firstName    ${EMPTY}     
     Input Text    id=lastName      ${VALID_LAST}
     Execute JavaScript    document.querySelector('button[cid="rc"]').click()
     Validate Error    Please fill your first name
@@ -100,7 +100,7 @@ Register Missing LastName
     Input Text    id=accountId     ${VALID_ACC}
     Input Text    id=password      ${VALID_PASS}
     Input Text    id=firstName     ${VALID_FIRST}
-    Input Text    id=lastName      
+    Input Text    id=lastName    ${EMPTY}       
     Execute JavaScript    document.querySelector('button[cid="rc"]').click()
     Validate Error    Please fill your last name
 

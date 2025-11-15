@@ -2,8 +2,8 @@
 Resource    ../../resources/imports.robot
 
 *** Variables ***
-${MONGO_URI}        mongodb+srv://chinnawat_kaewchim_db_user:0VFL8UIiiD8yHYPN@cubankcluster.jcnfl4o.mongodb.net/?appName=CUBankCluster
-${DB_NAME}          test
+${MONGO_URI}        mongodb://127.0.0.1:27017
+${DB_NAME}          cu-bank
 ${COLLECTION_NAME}  users
 ${ACCOUNT_ID}       6870194521
 

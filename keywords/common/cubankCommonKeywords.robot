@@ -88,7 +88,7 @@ Get Balance
     [Documentation]    Read the numeric account balance from the UI.
     ${bal_text}=    Get Text    xpath=(//h2[text()="Balance:"]/following-sibling::h1)[1]
     ${bal}=         Convert To Integer    ${bal_text}
-    [Return]        ${bal}
+    RETURN        ${bal}
 
 
 # ======= Withdrawal
