@@ -1,15 +1,12 @@
 *** Settings ***
 Library           SeleniumLibrary
 Library    ../.venv/lib/python3.14/site-packages/robot/libraries/OperatingSystem.py
-Suite Setup       Login To Bank
-Suite Teardown    Close Browser
-
-# Suite Setup       Run Keywords  Delete Account By Id    ${VALID_ACC}
-#                   ...   AND   Create New User    ${NAME}    ${VALID_ACC}    ${PASSWORD}  
-#                   ...   AND   Open Browser First
-#                   ...   AND   Login with account number and password  accountNumber=${VALID_ACC}  password=${PASSWORD}
-# Suite Teardown    Run Keywords  Close Browser
-#                   ...   AND    Delete Account By Id    ${VALID_ACC}
+Suite Setup       Run Keywords  Delete Account By Id    ${VALID_ACC}
+                  ...   AND   Create New User    ${NAME}    ${VALID_ACC}    ${PASSWORD}  
+                  ...   AND   Open Browser First
+                  ...   AND   Login with account number and password  accountNumber=${VALID_ACC}  password=${PASSWORD}
+Suite Teardown    Run Keywords  Close Browser
+                  ...   AND    Delete Account By Id    ${VALID_ACC}
 
 Resource          ../resources/imports.robot
 Resource          ../keywords/common/mongoDatabaseKeywords.robot
@@ -100,7 +97,7 @@ Get Withdraw Native Tooltip
     
     ${msg}=    Execute Javascript    return document.querySelector('input[cid="w1"]').validationMessage;
     Log To Console    Withdraw tooltip: ${msg}
-    Return    ${msg}
+    RETURN    ${msg}
 
 # --------------------- NEW: ใส่ค่า non-numeric ด้วย JS (type=number ไม่ยอม) -----
 Set Withdraw Value Via JS

@@ -124,7 +124,7 @@ TC007 บัญชีไม่พบในระบบ
 TC008 เลขบัญชีไม่ครบ 10 หลัก 
     Go To Transfer
     Submit Transfer    ${TARGET_SHORT}    ${AMOUNT_VALID}
-    Validate Error    The account number must be exactly 10 digits long.
+    Validate Error    Your account ID must be exactly 10 digits long.
 
 
 TC009 เลขบัญชีเกิน 10 หลัก 

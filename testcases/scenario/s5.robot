@@ -81,7 +81,7 @@ TC35 โอนเงินไม่สำเร็จ - บัญชีไม่
 TC36 โอนเงินไม่สำเร็จ - เลขบัญชีไม่ครบ 10 หลัก 
     Go To Transfer
     Submit Transfer    ${TARGET_SHORT}    ${TRANSFER_AMOUNT}
-    Validate Error    The account number must be exactly 10 digits long.
+    Validate Error    Your account ID must be exactly 10 digits long.
 
 TC37 โอนเงินไม่สำเร็จ - เลขบัญชีเกิน 10 หลัก 
     Go To Transfer
