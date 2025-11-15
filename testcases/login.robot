@@ -26,9 +26,6 @@ Validate Error
     Should Be Equal As Strings    ${txt}    ${msg}
 
 *** Test Cases ***
-Login success
-    Login with account number and password  accountNumber=${VALID_ACC}  password=${PASSWORD}
-
 Login Account Short
     Input Text    id=accountId     12345
     Input Text    id=password      ${VALID_PASS}
@@ -90,3 +87,6 @@ Login Invalid Password
     Input Text    id=password    0000
     Execute JavaScript    document.querySelector('button[cid="lc"]').click()
     Validate Error    Incorrect password. Please try again.
+
+Login success
+    Login with account number and password  accountNumber=${VALID_ACC}  password=${PASSWORD}
