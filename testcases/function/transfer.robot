@@ -10,10 +10,10 @@ Suite Teardown    Run Keywords  Close Browser
                   ...   AND    Delete Account By Id    ${VALID_ACC}
                   ...    AND    Delete Account By Id    ${TARGET_VALID}
 
-Resource    ../keywords/common/cubankCommonKeywords.robot
-Resource    ../keywords/common/mongoDatabaseKeywords.robot
+Resource    ../../keywords/common/cubankCommonKeywords.robot
+Resource    ../../keywords/common/mongoDatabaseKeywords.robot
 
-Variables    ../resources/testdata/scenerio5.yml
+Variables    ../../resources/testdata/scenerio5.yml
 
 *** Variables ***
 ${BASE_URL}       http://localhost:3000

@@ -1,6 +1,6 @@
 *** Settings ***
 Library           SeleniumLibrary
-Library    ../.venv/lib/python3.14/site-packages/robot/libraries/OperatingSystem.py
+Library    ../../.venv/lib/python3.14/site-packages/robot/libraries/OperatingSystem.py
 Suite Setup       Run Keywords  Delete Account By Id    ${VALID_ACC}
                   ...   AND   Create New User    ${NAME}    ${VALID_ACC}    ${PASSWORD}  
                   ...   AND   Open Browser First
@@ -8,11 +8,11 @@ Suite Setup       Run Keywords  Delete Account By Id    ${VALID_ACC}
 Suite Teardown    Run Keywords  Close Browser
                   ...   AND    Delete Account By Id    ${VALID_ACC}
 
-Resource          ../resources/imports.robot
-Resource          ../keywords/common/mongoDatabaseKeywords.robot
-Resource          ../keywords/common/cubankCommonKeywords.robot
+Resource          ../../resources/imports.robot
+Resource          ../../keywords/common/mongoDatabaseKeywords.robot
+Resource          ../../keywords/common/cubankCommonKeywords.robot
 
-Variables    ../resources/testdata/scenerio4.yml
+Variables    ../../resources/testdata/scenerio4.yml
 
 *** Variables ***
 ${BASE_URL}           http://localhost:3000

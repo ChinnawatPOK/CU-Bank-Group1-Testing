@@ -7,8 +7,11 @@ Suite Setup       Run Keywords  Delete Account By Id    ${VALID_ACC}
 Suite Teardown    Run Keywords  Close Browser
                   ...   AND    Delete Account By Id    ${VALID_ACC}
 
-Resource          ../keywords/common/cubankCommonKeywords.robot
-Resource          ../keywords/common/mongoDatabaseKeywords.robot
+Resource          ../../keywords/common/cubankCommonKeywords.robot
+Resource          ../../keywords/common/mongoDatabaseKeywords.robot
+
+
+Variables    ../../resources/testdata/scenerio7.yml
 
 *** Variables ***
 ${BASE_URL}       http://localhost:3000
@@ -32,7 +35,7 @@ ${AMOUNT_EQUAL}       7550
 ${AMOUNT_ZERO}        0
 ${AMOUNT_NEGATIVE}   -500
 ${AMOUNT_OVER}        50000
-${AMOUNT_NON_INTEGER}    e1
+
 
 *** Keywords ***
 Go To Bill Payment
@@ -55,7 +58,6 @@ Submit Bill Payment
     Click Button                     css:button[cid="bc"]
     Sleep    1s
 
-
 Validate Error
     [Documentation]    Validate error message shown for failed bill payment.
     [Arguments]    ${msg}
@@ -66,31 +68,42 @@ Validate Success
     [Documentation]    Validate successful payment confirmation appears.
     Wait Until Page Contains    Confirm    timeout=10s
 
-
-Get Balance
-    [Documentation]    Read the numeric account balance from the UI.
-    ${bal_text}=    Get Text    xpath=(//h2[text()="Balance:"]/following-sibling::h1)[1]
-    ${bal}=         Convert To Integer    ${bal_text}
-    RETURN        ${bal}
-
-
 *** Test Cases ***
-TC001 จำนวนเงินเป็นศูนย์
+TC001 ชำระค่าน้ำ 150 บาท
+    [Setup]   Run Keywords    Delete Transactions On Account    ${VALID_ACC}
+    ...       AND   Update Balance By Amount    ${VALID_ACC}    10000
     Go To Bill Payment
-    Submit Bill Payment    ${BILL_ELECTRIC}    ${AMOUNT_ZERO}
-    Validate Error    The amount must be greater than 0. Please enter a positive number.
+    Submit Bill Payment    ${BILL_WATER}    ${AMOUNT_VALID1}
+    Validate Success
+    Reload Page
+    Verify Balance On Title    balance=9850
+    Verify History transaction should correct   expected_data=${scenerio7.TC_001.expected_history}
 
-TC002 จำนวนเงินติดลบ
-    Go To Bill Payment
-    Submit Bill Payment    ${BILL_ELECTRIC}    ${AMOUNT_NEGATIVE}
-    Validate Error    The amount must be greater than 0. Please enter a positive number.
 
-TC003 ยอดเกินกว่ายอดเงินคงเหลือ
+TC002 ชำระค่าไฟ 2000 บาท
+    [Setup]    Delete Transactions On Account    ${VALID_ACC}
     Go To Bill Payment
-    Submit Bill Payment    ${BILL_PHONE}    ${AMOUNT_OVER}
-    Validate Error    Your balance is not enough to complete the bill payment.
+    Submit Bill Payment    ${BILL_ELECTRIC}    ${AMOUNT_VALID2}
+    Validate Success
+    Reload Page
+    Verify Balance On Title    balance=7850
+    Verify History transaction should correct   expected_data=${scenerio7.TC_002.expected_history}
 
-TC004 ยอดเงินไม่เป็นตัวเลข
+TC003 ชำระค่าโทรศัพท์ 300 บาท
+    [Setup]    Delete Transactions On Account    ${VALID_ACC}
     Go To Bill Payment
-    Submit Bill Payment    ${BILL_PHONE}    ${AMOUNT_NON_INTEGER}
-    Validate Error    Invalid balance amount. Please enter a valid number.
+    Submit Bill Payment    ${BILL_PHONE}    ${AMOUNT_VALID3}
+    Validate Success
+    Reload Page
+    Verify Balance On Title    balance=7550
+    Verify History transaction should correct   expected_data=${scenerio7.TC_003.expected_history}
+
+
+TC004 ชำระเท่ากับยอดคงเหลือ
+    [Setup]    Delete Transactions On Account    ${VALID_ACC}
+    Go To Bill Payment
+    Submit Bill Payment    ${BILL_WATER}    ${AMOUNT_EQUAL}
+    Validate Success
+    Reload Page
+    # Verify Balance On Title    balance=0
+    Verify History transaction should correct   expected_data=${scenerio7.TC_004.expected_history}

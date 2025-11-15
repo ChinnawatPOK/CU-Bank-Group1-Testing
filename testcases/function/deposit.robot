@@ -1,9 +1,9 @@
 *** Settings ***
-Resource    ../resources/imports.robot
-Resource    ../keywords/common/cubankCommonKeywords.robot
-Resource    ../keywords/common/mongoDatabaseKeywords.robot
+Resource    ../../resources/imports.robot
+Resource    ../../keywords/common/cubankCommonKeywords.robot
+Resource    ../../keywords/common/mongoDatabaseKeywords.robot
 
-Variables    ../resources/testdata/scenerio3.yml
+Variables    ../../resources/testdata/scenerio3.yml
 
 Suite Setup       Run Keywords  Delete Account By Id  ${ACCOUNT_ID}
                   ...   AND   Create New User  ${NAME}   ${ACCOUNT_ID}  ${PASSWORD}
