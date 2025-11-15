@@ -185,4 +185,5 @@ TC04 Withdraw invalid (non-integer / non-numeric)
     Input Text            css:[cid="w1"]    ${WITHDRAW_DEC}
     Click Button          css:[cid="wc"]
     Validate Balance Equals             ${BALANCE_BASE}
+    Validate Withdraw Error      ${MSG_DECIMAL}
     Verify History transaction should empty
