@@ -1,0 +1,33 @@
+s7:
+  TC_001:
+    expected_history: [
+      {
+        "type": "billpayment",
+        "amount": 150,
+        "balance": 9850
+      }
+    ]
+  TC_002:
+    expected_history: [
+      {
+        "type": "billpayment",
+        "amount": 2000,
+        "balance": 7850
+      }
+    ]
+  TC_003:
+    expected_history: [
+      {
+        "type": "billpayment",
+        "amount": 300,
+        "balance": 7550
+      }
+    ]
+  TC_004:
+    expected_history: [
+      {
+        "type": "billpayment",
+        "amount": 7550,
+        "balance": 0
+      }
+    ]

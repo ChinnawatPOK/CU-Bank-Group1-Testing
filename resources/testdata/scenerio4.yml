@@ -1,0 +1,10 @@
+scenerio4:
+  TC_02:
+    expected_history: [
+      {
+        "type": withdraw,
+        "target": "1234567891",
+        "amount": 200,
+        "balance": 1300
+      }
+    ]

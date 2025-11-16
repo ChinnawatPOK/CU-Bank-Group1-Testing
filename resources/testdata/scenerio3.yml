@@ -1,0 +1,9 @@
+scenerio3:
+  TC_001:
+    expected_history: [
+      {
+        "type": deposit,
+        "amount": 500,
+        "balance": 500
+      }
+    ]

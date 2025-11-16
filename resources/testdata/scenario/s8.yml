@@ -1,0 +1,10 @@
+s8:
+  TC_001:
+    expected_history: [
+      {
+        "type": "transfer to",
+        "target": "2222222222",
+        "amount": 1000,
+        "balance": 0
+      }
+    ]
