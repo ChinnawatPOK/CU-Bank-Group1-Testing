@@ -105,5 +105,4 @@ TC004 ชำระเท่ากับยอดคงเหลือ
     Submit Bill Payment    ${BILL_WATER}    ${AMOUNT_EQUAL}
     Validate Success
     Reload Page
-    # Verify Balance On Title    balance=0
     Verify History transaction should correct   expected_data=${scenerio7.TC_004.expected_history}

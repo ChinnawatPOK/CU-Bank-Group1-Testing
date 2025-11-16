@@ -7,3 +7,16 @@ s5:
         "balance": 1500
       }
     ]
+  TC_002:
+    expected_history: [
+      {
+        "type": deposit,
+        "amount": 1500,
+        "balance": 1500
+      },
+      {
+        "type": withdraw,
+        "amount": 200,
+        "balance": 1300
+      }
+    ]

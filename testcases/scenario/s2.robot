@@ -27,7 +27,7 @@ Validate Error
     Should Be Equal As Strings    ${txt}    ${msg}
 
 *** Test Cases ***
-TC13 ข้าสู่ระบบไม่ผ่าน - กรอกหมายเลขบัญชียาวเกินไป (Account Number > 10 digits)
+TC13 เข้าสู่ระบบไม่ผ่าน - กรอกหมายเลขบัญชียาวเกินไป (Account Number > 10 digits)
     Reload Page
     Sleep             200ms
     Input Text    id=accountId     1234567890123456
@@ -35,13 +35,13 @@ TC13 ข้าสู่ระบบไม่ผ่าน - กรอกหมา
     Execute JavaScript    document.querySelector('button[cid="lc"]').click()
     Validate Error    Your account ID must be exactly 10 digits long.
 
-TC14 ข้าสู่ระบบไม่ผ่าน - กรอกหมายเลขบัญชีสั้นเกินไป (Account Number < 10 digits)
+TC14 เข้าสู่ระบบไม่ผ่าน - กรอกหมายเลขบัญชีสั้นเกินไป (Account Number < 10 digits)
     Input Text    id=accountId     12345
     Input Text    id=password      ${VALID_PASS}
     Execute JavaScript    document.querySelector('button[cid="lc"]').click()
     Validate Error    Your account ID must be exactly 10 digits long.
 
-TC15 ข้าสู่ระบบไม่ผ่าน - กรอกหมายเลขบัญชีมีตัวอักษร
+TC15 เข้าสู่ระบบไม่ผ่าน - กรอกหมายเลขบัญชีมีตัวอักษร
     Reload Page
     Sleep             200ms
     Input Text    id=accountId     ABCDEFGHIJ

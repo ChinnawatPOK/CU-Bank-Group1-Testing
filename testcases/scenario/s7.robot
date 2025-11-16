@@ -7,7 +7,6 @@ Variables    ../../resources/testdata/scenario/s7.yml
 Suite Setup       Run Keywords  Delete Account By Id    ${VALID_ACC}
                   ...   AND   Create New User    ${NAME}    ${VALID_ACC}    ${PASSWORD}   
                   ...   AND   Open Browser First
-                  ...   AND   Login with account number and password  accountNumber=${VALID_ACC}  password=${PASSWORD}
 Suite Teardown    Run Keywords  Close Browser
                   ...   AND    Delete Account By Id    ${VALID_ACC}
 
@@ -65,6 +64,8 @@ Validate Success
     Wait Until Page Contains    Confirm    timeout=10s
 
 *** Test Cases ***
+TC12 เข้าสู่ระบบผ่าน 
+    Login with account number and password  accountNumber=${VALID_ACC}  password=${PASSWORD}
 TC44 ชำระค่าน้ำ 150 บาท
     [Setup]   Run Keywords    Delete Transactions On Account    ${VALID_ACC}
     ...       AND   Update Balance By Amount    ${VALID_ACC}    10000
