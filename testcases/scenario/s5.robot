@@ -69,9 +69,9 @@ TC21 ฝากเงินสำเร็จ
 
 TC26 ถอนเงินสำเร็จ (Amount < balance) 
     Reload Page
-    Verify Balance On Title  balance=1500
     Submit Withdraw      ${WITHDRAW_AMOUNT}
-    Verify History transaction should correct   expected_data=${s5.TC_001.expected_history}
+    Verify Balance On Title  balance=1300
+    Verify History transaction should correct   expected_data=${s5.TC_002.expected_history}
 
 TC35 โอนเงินไม่สำเร็จ - บัญชีไม่พบในระบบ 
     Go To Transfer

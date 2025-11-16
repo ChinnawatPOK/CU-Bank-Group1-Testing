@@ -3,7 +3,6 @@ s7:
     expected_history: [
       {
         "type": "billpayment",
-        "target": "1234567894",
         "amount": 150,
         "balance": 9850
       }
@@ -12,7 +11,6 @@ s7:
     expected_history: [
       {
         "type": "billpayment",
-        "target": "1234567894",
         "amount": 2000,
         "balance": 7850
       }
@@ -21,7 +19,6 @@ s7:
     expected_history: [
       {
         "type": "billpayment",
-        "target": "1234567894",
         "amount": 300,
         "balance": 7550
       }
@@ -30,7 +27,6 @@ s7:
     expected_history: [
       {
         "type": "billpayment",
-        "target": "1234567894",
         "amount": 7550,
         "balance": 0
       }

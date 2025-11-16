@@ -1,5 +1,5 @@
 s4:
-  TC_002:
+  TC_001:
     expected_history: [
       {
         "type": deposit,

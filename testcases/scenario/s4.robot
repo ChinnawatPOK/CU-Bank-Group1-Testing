@@ -31,10 +31,11 @@ TC21 ฝากเงินสำเร็จ
     Reload Page
     Make deposit transaction success   depositAmount=1500
     Verify Balance On Title  balance=1500
-    Verify History transaction should correct   expected_data=${s4.TC_002.expected_history}
+    Verify History transaction should correct   expected_data=${s4.TC_001.expected_history}
 
 TC25 ถอนเงินไม่สำเร็จ (Amount > balance) 
     Reload Page
     Verify Balance On Title  balance=1500
     Submit Withdraw      ${WITHDRAW_OVER_AMOUNT}
     Validate Withdraw Error      ${MSG_INSUFFICIENT}
+    Verify History transaction should correct   expected_data=${s4.TC_001.expected_history}

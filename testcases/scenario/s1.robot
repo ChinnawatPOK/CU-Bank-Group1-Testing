@@ -39,7 +39,7 @@ TC02 ลงทะเบียนไม่ผ่าน - กรอกหมาย
 
 TC03 ลงทะเบียนไม่ผ่าน - กรอกหมายเลขบัญชีมีตัวอักษร
     Reload Page
-    Sleep             200ms
+    Sleep             400ms
     Input Text    id=accountId     ABCDEFGHIJ
     Input Text    id=password      ${VALID_PASS}
     Input Text    id=firstName     ${VALID_FIRST}
@@ -49,7 +49,7 @@ TC03 ลงทะเบียนไม่ผ่าน - กรอกหมาย
 
 TC04 ลงทะเบียนไม่ผ่าน - กรอกหมายเลขบัญชีมีที่มีอยู่ในระบบ
     Open Browser    http://localhost:3000/register    chrome
-    Sleep             200ms
+    Sleep             400ms
     Input Text    id=accountId     ${VALID_ACC}
     Input Text    id=password      ${VALID_PASS}
     Input Text    id=firstName     ${VALID_FIRST}
@@ -59,7 +59,7 @@ TC04 ลงทะเบียนไม่ผ่าน - กรอกหมาย
 
 TC05 ลงทะเบียนไม่ผ่าน - รหัสผ่านสั้นเกินไป
     Reload Page
-    Sleep             200ms
+    Sleep             400ms
     Input Text    id=accountId     ${VALID_ACC}
     Input Text    id=password      12
     Input Text    id=firstName     ${VALID_FIRST}
@@ -69,7 +69,7 @@ TC05 ลงทะเบียนไม่ผ่าน - รหัสผ่าน
 
 TC06 ลงทะเบียนไม่ผ่าน - ไม่กรอกชื่อจริง 
     Reload Page    
-    Sleep             200ms
+    Sleep             400ms
     Input Text    id=accountId     ${VALID_ACC}
     Input Text    id=password      ${VALID_PASS}
     Input Text    id=firstName    ${EMPTY}     

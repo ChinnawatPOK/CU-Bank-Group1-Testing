@@ -6,7 +6,6 @@ Resource    ../../keywords/common/mongoDatabaseKeywords.robot
 Suite Setup       Run Keywords  Delete Account By Id  ${ACCOUNT_ID}
                   ...   AND   Create New User  ${NAME}   ${ACCOUNT_ID}  ${PASSWORD}
                   ...   AND   Open Browser First
-                  ...   AND   Login with account number and password  accountNumber=${ACCOUNT_ID}  password=${PASSWORD}
 Suite Teardown    Run Keywords  Close Browser
                   ...   AND    Delete Account By Id  ${ACCOUNT_ID}
 
@@ -16,6 +15,9 @@ ${NAME}           Litle Chacoal
 ${PASSWORD}       1111
 
 *** Test Cases ***
+TC12 เข้าสู่ระบบผ่าน 
+    Login with account number and password  accountNumber=${ACCOUNT_ID}  password=${PASSWORD}
+    
 TC22 ฝากเงินไม่สำเร็จ จำนวนเงินติดลบ 
     [Setup]   Run Keywords    Delete Transactions On Account  ${ACCOUNT_ID}
     ...       AND   Update Balance To Zero  ${ACCOUNT_ID}

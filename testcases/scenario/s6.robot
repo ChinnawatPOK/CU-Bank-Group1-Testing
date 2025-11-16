@@ -6,7 +6,6 @@ Resource          ../../keywords/common/mongoDatabaseKeywords.robot
 Suite Setup       Run Keywords  Delete Account By Id    ${VALID_ACC}
                   ...   AND   Create New User    ${NAME}    ${VALID_ACC}    ${PASSWORD}   
                   ...   AND   Open Browser First
-                  ...   AND   Login with account number and password  accountNumber=${VALID_ACC}  password=${PASSWORD}
 Suite Teardown    Run Keywords  Close Browser
                   ...   AND    Delete Account By Id    ${VALID_ACC}
 
@@ -63,6 +62,9 @@ Validate Error
 
 
 *** Test Cases ***
+TC12 เข้าสู่ระบบผ่าน 
+    Login with account number and password  accountNumber=${VALID_ACC}  password=${PASSWORD}
+
 TC40 จำนวนเงินเป็นศูนย์
     Go To Bill Payment
     Submit Bill Payment    ${BILL_ELECTRIC}    ${AMOUNT_ZERO}
